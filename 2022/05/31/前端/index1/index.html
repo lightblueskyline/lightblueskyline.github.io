@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="M_0v0_M">
+    
+    <title>
+        
+            CSS 学习 |
+        
+        瘦毛毛
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"lightblueskyline.github.io","root":"/","language":"zh-CN"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                瘦毛毛
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">CSS 学习</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">M_0v0_M</span>
+                        
+                            <span class="author-label">Lv2</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-05-31 00:18:30</span>
+        <span class="mobile">2022-05-31 00:18</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/CSS/">CSS</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p><a class="link"   target="_blank" rel="noopener" href="https://www.w3schools.com/css/default.asp" >CSS Tutorial<i class="fas fa-external-link-alt"></i></a><br><a class="link"   target="_blank" rel="noopener" href="https://www.w3schools.com/cssref/default.asp" >CSS Reference<i class="fas fa-external-link-alt"></i></a>  </p>
+<p>style 属性<br>head 标签中的 style 标签<br>.css 文件中</p>
+<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>示例</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>.class</td>
+<td>.intro</td>
+<td>选择 class&#x3D;”intro” 元素</td>
+</tr>
+<tr>
+<td>.class1.class2</td>
+<td>.name1.name2</td>
+<td>选择 class&#x3D;”name1 name2” 的元素</td>
+</tr>
+<tr>
+<td>.class1 .class2</td>
+<td>.name1 .name2</td>
+<td>(注意中间有空格)选择子元素 class&#x3D;”name2” 父元素 class&#x3D;”name1” 的子元素</td>
+</tr>
+<tr>
+<td>#id</td>
+<td>#firstname</td>
+<td>选择 id&#x3D;”firstname” 的元素</td>
+</tr>
+<tr>
+<td>*</td>
+<td>*</td>
+<td>选择所有元素</td>
+</tr>
+<tr>
+<td>element</td>
+<td>p</td>
+<td>选择 &lt;p&gt; 元素</td>
+</tr>
+<tr>
+<td>element.class</td>
+<td>p.intro</td>
+<td>选择 class&#x3D;”intro” 的 &lt;p&gt; 元素</td>
+</tr>
+<tr>
+<td>element,element</td>
+<td>div, p</td>
+<td>选择 &lt;div&gt; 元素和 &lt;p&gt; 元素</td>
+</tr>
+<tr>
+<td>element element</td>
+<td>div p</td>
+<td>(注意中间有空格)选择 &lt;div&gt; 元素中的 &lt;p&gt; 元素</td>
+</tr>
+<tr>
+<td>element&gt;element</td>
+<td>div &gt; p</td>
+<td>选择父元素是 &lt;div&gt; 元素的 &lt;p&gt; 元素</td>
+</tr>
+<tr>
+<td>element+element</td>
+<td>div + p</td>
+<td>选择 &lt;div&gt; 元素之后的第一个 &lt;p&gt; 元素</td>
+</tr>
+<tr>
+<td>element1~element2</td>
+<td>p ~ ul</td>
+<td>选择前面有 &lt;div&gt; 元素的 &lt;ul&gt; 元素</td>
+</tr>
+</tbody></table>
+<h2 id="属性选择器"><a href="#属性选择器" class="headerlink" title="属性选择器"></a>属性选择器</h2><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>示例</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[attribute]</td>
+<td>[target]</td>
+<td>选择有 target 属性的元素</td>
+</tr>
+<tr>
+<td>[attribute&#x3D;value]</td>
+<td>[target&#x3D;_blank]</td>
+<td>选择属性 target&#x3D;”_blank” 的元素</td>
+</tr>
+<tr>
+<td>[attribute~&#x3D;value]</td>
+<td>[title~&#x3D;flower]</td>
+<td>选择 title 属性包含单词 “flower” 的元素</td>
+</tr>
+<tr>
+<td>[attribute|&#x3D;value]</td>
+<td>[lang|&#x3D;en]</td>
+<td>选择 lang 属性值为 “en” 或者以 “en” 开头的元素</td>
+</tr>
+<tr>
+<td>[attribute^&#x3D;value]</td>
+<td>a[href^&#x3D;”https”]</td>
+<td>选择 href 属性值以 https 开头的 &lt;a&gt; 元素</td>
+</tr>
+<tr>
+<td>[attribute$&#x3D;value]</td>
+<td>a[href$&#x3D;”.pdf”]</td>
+<td>选择 href 属性值以 .pdf 结尾的 &lt;a&gt; 元素</td>
+</tr>
+<tr>
+<td>[attribute*&#x3D;value]</td>
+<td>a[href*&#x3D;”w3schools”]</td>
+<td>选择 href 属性包含 w3schools 字符串的 &lt;a&gt; 元素</td>
+</tr>
+</tbody></table>
+<h2 id="伪类选择器"><a href="#伪类选择器" class="headerlink" title="伪类选择器"></a>伪类选择器</h2><table>
+<thead>
+<tr>
+<th>选择器</th>
+<th>示例</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>:active</td>
+<td>a:active</td>
+<td>选择活动中的 &lt;a&gt; 元素</td>
+</tr>
+<tr>
+<td>::after</td>
+<td>p::after</td>
+<td>在 &lt;p&gt; 元素之后插入值</td>
+</tr>
+<tr>
+<td>::before</td>
+<td>p::before</td>
+<td>在 &lt;p&gt; 元素之前插入值</td>
+</tr>
+<tr>
+<td>:checked</td>
+<td>input:checked</td>
+<td>选择被选中的 &lt;input&gt; 元素</td>
+</tr>
+<tr>
+<td>:default</td>
+<td>input:default</td>
+<td>选择 default &lt;input&gt; 元素</td>
+</tr>
+<tr>
+<td>:disabled</td>
+<td>input:disabled</td>
+<td>选择失能的 &lt;input&gt; 元素</td>
+</tr>
+<tr>
+<td>:empty</td>
+<td>p:empty</td>
+<td>选择无子代(包含无文本子代)的 &lt;p&gt; 元素</td>
+</tr>
+<tr>
+<td>:enable</td>
+<td>input:enable</td>
+<td>选择使能的 &lt;input&gt; 元素</td>
+</tr>
+<tr>
+<td>:first-child</td>
+<td>p:first-child</td>
+<td>选择作为父元素的第一个子元素的 &lt;p&gt; 元素</td>
+</tr>
+<tr>
+<td>::first-letter</td>
+<td>p::first-letter</td>
+<td>选择 &lt;p&gt; 元素中的第一个字母</td>
+</tr>
+<tr>
+<td>::first-line</td>
+<td>p::first-line</td>
+<td>选择 &lt;p&gt; 元素的第一行</td>
+</tr>
+<tr>
+<td>:first-of-type</td>
+<td>p:first-of-type</td>
+<td>选择作为父元素的第一个子元素且类型为 &lt;p&gt; 的 &lt;p&gt; 元素</td>
+</tr>
+<tr>
+<td>:focus</td>
+<td>input:focus</td>
+<td>选择拥有焦点的 &lt;input&gt; 元素</td>
+</tr>
+<tr>
+<td>:fullscreen</td>
+<td>:fullscreen</td>
+<td>选择处于全屏模式的元素</td>
+</tr>
+<tr>
+<td>:hover</td>
+<td>a:hover</td>
+<td>选择鼠标越过的 &lt;a&gt; 元素</td>
+</tr>
+<tr>
+<td>:in-range</td>
+<td>input:in-range</td>
+<td>选择拥有特殊值区间的 &lt;input&gt; 元素</td>
+</tr>
+<tr>
+<td>:indeterminate</td>
+<td>input:indeterminate</td>
+<td>选择处于模糊状态的 &lt;input&gt; 元素</td>
+</tr>
+<tr>
+<td>:invalid</td>
+<td>input:invalid</td>
+<td>选择包含无效值的 &lt;input&gt; 元素</td>
+</tr>
+<tr>
+<td>:lang(language)</td>
+<td>p:lang(it)</td>
+<td>选择 lang 属性值为 “it” 的 &lt;p&gt; 元素</td>
+</tr>
+<tr>
+<td>:last-child</td>
+<td>p:last-child</td>
+<td>选择作为父元素的最后一个子元素的 &lt;p&gt; 元素</td>
+</tr>
+<tr>
+<td>:last-of-type</td>
+<td>p:last-of-type</td>
+<td>选择作为父元素的最后一个子元素且类型为 &lt;p&gt; 的 &lt;p&gt; 元素</td>
+</tr>
+<tr>
+<td>:link</td>
+<td>a:link</td>
+<td>选择未被点击过的 &lt;a&gt; 元素</td>
+</tr>
+<tr>
+<td>::marker</td>
+<td>::marker</td>
+<td>选择列表元素的记号</td>
+</tr>
+<tr>
+<td>:not(selector)</td>
+<td>:not(p)</td>
+<td>选择不为 &lt;p&gt; 元素的元素</td>
+</tr>
+<tr>
+<td>:nth-child(n)</td>
+<td>p:nth-child(2)</td>
+<td>选择作为父元素的第二个子元素的 &lt;p&gt; 元素</td>
+</tr>
+<tr>
+<td>:nth-last-child(n)</td>
+<td>p:nth-last-child(2)</td>
+<td>选择作为父元素的倒数第二个子元素的 &lt;p&gt; 元素</td>
+</tr>
+<tr>
+<td>:nth-last-of-type(n)</td>
+<td>p:nth-last-of-type(2)</td>
+<td>选择作为父元素的倒数第二个子元素且类型为 &lt;p&gt; 的 &lt;p&gt; 元素</td>
+</tr>
+<tr>
+<td>:nth-of-type(n)</td>
+<td>p:nth-of-type(2)</td>
+<td>选择作为父元素的第二个子元素且类型为 &lt;p&gt; 的 &lt;p&gt; 元素</td>
+</tr>
+<tr>
+<td>:only-of-type</td>
+<td>p:only-of-type</td>
+<td>选择作为父元素的唯一类型为 &lt;p&gt; 的 &lt;p&gt; 元素</td>
+</tr>
+<tr>
+<td>:only-child</td>
+<td>p:only-child</td>
+<td>选择作为父元素的唯一子元素的 &lt;p&gt; 元素</td>
+</tr>
+<tr>
+<td>:optional</td>
+<td>input:optional</td>
+<td>选择无 “required” 属性的 &lt;input&gt; 元素</td>
+</tr>
+<tr>
+<td>:out-of-range</td>
+<td>input:out-of-range</td>
+<td>选择值越界的 &lt;input&gt; 元素</td>
+</tr>
+<tr>
+<td>::placeholder</td>
+<td>input::placeholder</td>
+<td>选择设置 “placeholder” 属性值的 &lt;input&gt; 元素</td>
+</tr>
+<tr>
+<td>:read-only</td>
+<td>input:read-only</td>
+<td>选择设置 “readonly” 属性值的 &lt;input&gt; 元素</td>
+</tr>
+<tr>
+<td>:read-write</td>
+<td>input:read-write</td>
+<td>选择未设置 “readonly” 属性值的 &lt;input&gt; 元素</td>
+</tr>
+<tr>
+<td>:required</td>
+<td>input:required</td>
+<td>选择设置 “required” 属性值的 &lt;input&gt; 元素</td>
+</tr>
+<tr>
+<td>:root</td>
+<td>:root</td>
+<td>选择文档根元素</td>
+</tr>
+<tr>
+<td>::selection</td>
+<td>::selection</td>
+<td>选择被用户选中的元素的部分</td>
+</tr>
+<tr>
+<td>:target</td>
+<td>#news:target</td>
+<td>选择当前活动元素(由链接锚定的元素)</td>
+</tr>
+<tr>
+<td>:valid</td>
+<td>input:valid</td>
+<td>选择值验证有效的 &lt;input&gt; 元素</td>
+</tr>
+<tr>
+<td>:visited</td>
+<td>a:visited</td>
+<td>选择被点击访问过的 &lt;a&gt; 元素</td>
+</tr>
+</tbody></table>
+<h2 id="选择器优先级"><a href="#选择器优先级" class="headerlink" title="选择器优先级"></a>选择器优先级</h2><p>style 属性 &gt; ID 选择器 &gt; class 选择器 &gt; 标签选择器<br>就近原则</p>
+<h2 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h2><p><a class="link"   target="_blank" rel="noopener" href="https://www.w3schools.com/css/css_boxmodel.asp" >CSS Box Model<i class="fas fa-external-link-alt"></i></a><br>Content -&gt; Padding -&gt; Border -&gt; Margin<br>内容 -&gt; 内边距 -&gt; 边框 -&gt; 外边距</p>
+<h2 id="布局样式"><a href="#布局样式" class="headerlink" title="布局样式"></a>布局样式</h2><p>文档流：文档的排列方式<br><a class="link"   target="_blank" rel="noopener" href="https://www.w3schools.com/css/css_display_visibility.asp" >CSS Layout - The display Property<i class="fas fa-external-link-alt"></i></a><br><a class="link"   target="_blank" rel="noopener" href="https://www.w3schools.com/css/css_max-width.asp" >CSS Layout - width and max-width<i class="fas fa-external-link-alt"></i></a><br><a class="link"   target="_blank" rel="noopener" href="https://www.w3schools.com/css/css_positioning.asp" >CSS Layout - The position Property<i class="fas fa-external-link-alt"></i></a><br><a class="link"   target="_blank" rel="noopener" href="https://www.w3schools.com/css/css_z-index.asp" >CSS Layout - The z-index Property<i class="fas fa-external-link-alt"></i></a><br><a class="link"   target="_blank" rel="noopener" href="https://www.w3schools.com/css/css_overflow.asp" >CSS Layout - Overflow<i class="fas fa-external-link-alt"></i></a><br><a class="link"   target="_blank" rel="noopener" href="https://www.w3schools.com/css/css_float.asp" >CSS Layout - float and clear<i class="fas fa-external-link-alt"></i></a><br><a class="link"   target="_blank" rel="noopener" href="https://www.w3schools.com/css/css_float_clear.asp" >CSS Layout - clear and clearfix<i class="fas fa-external-link-alt"></i></a><br><a class="link"   target="_blank" rel="noopener" href="https://www.w3schools.com/css/css_float_examples.asp" >CSS Layout - Float Examples<i class="fas fa-external-link-alt"></i></a><br><a class="link"   target="_blank" rel="noopener" href="https://www.w3schools.com/css/css_inline-block.asp" >CSS Layout - display: inline-block<i class="fas fa-external-link-alt"></i></a><br><a class="link"   target="_blank" rel="noopener" href="https://www.w3schools.com/css/css_align.asp" >CSS Layout - Horizontal &amp; Vertical Align<i class="fas fa-external-link-alt"></i></a></p>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/CSS/">#CSS</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/05/31/%E5%89%8D%E7%AB%AF/index2/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">JavaScript 学习</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/05/31/%E5%89%8D%E7%AB%AF/index/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">HTML 学习</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">M_0v0_M</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">属性选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8"><span class="nav-number">3.</span> <span class="nav-text">伪类选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E5%99%A8%E4%BC%98%E5%85%88%E7%BA%A7"><span class="nav-number">4.</span> <span class="nav-text">选择器优先级</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B"><span class="nav-number">5.</span> <span class="nav-text">盒子模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%83%E5%B1%80%E6%A0%B7%E5%BC%8F"><span class="nav-number">6.</span> <span class="nav-text">布局样式</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>

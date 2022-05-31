@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="M_0v0_M">
+    
+    <title>
+        
+            Git 版本控制工具 |
+        
+        瘦毛毛
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"lightblueskyline.github.io","root":"/","language":"zh-CN"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                瘦毛毛
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Git 版本控制工具</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">M_0v0_M</span>
+                        
+                            <span class="author-label">Lv2</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-05-31 06:25:48</span>
+        <span class="mobile">2022-05-31 06:25</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/Git/">Git</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>查看所有配置以及所在文件<br><code>git config --list --show-origin</code></p>
+<h2 id="Git-本地仓库"><a href="#Git-本地仓库" class="headerlink" title="Git 本地仓库"></a>Git 本地仓库</h2><p><a class="link"   target="_blank" rel="noopener" href="https://git-scm.com/downloads" >下载安装 Git<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="初始化本地仓库"><a href="#初始化本地仓库" class="headerlink" title="初始化本地仓库"></a>初始化本地仓库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 文件夹中</span></span><br><span class="line">git init</span><br></pre></td></tr></table></figure>
+
+<h3 id="Git-签名"><a href="#Git-签名" class="headerlink" title="Git 签名"></a>Git 签名</h3><ol>
+<li><p>系统级别签名</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;John Doe&quot;</span></span><br><span class="line">git config --global user.email <span class="string">&quot;johndoe@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>项目级别签名</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config user.name <span class="string">&quot;John Doe&quot;</span></span><br><span class="line">git config user.email <span class="string">&quot;johndoe@example.com&quot;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="本地仓库基本操作"><a href="#本地仓库基本操作" class="headerlink" title="本地仓库基本操作"></a>本地仓库基本操作</h3><ol>
+<li><p>查看状态</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># .git 是版本区</span></span><br><span class="line">git status</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加至暂存区</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 工作目录添加文件</span></span><br><span class="line"><span class="comment"># 将文件添加至暂存区</span></span><br><span class="line">git add Test.txt</span><br><span class="line">git add -A</span><br><span class="line"></span><br><span class="line"><span class="comment"># 撤销添加至暂存区</span></span><br><span class="line">git <span class="built_in">rm</span> --cached Test.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>提交至本地仓库</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;备注内容&quot;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="查看提交历史"><a href="#查看提交历史" class="headerlink" title="查看提交历史"></a>查看提交历史</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加指令别名，美化 Log</span></span><br><span class="line">git config --global alias.adog <span class="string">&quot;log --all --decorate --oneline --graph&quot;</span></span><br><span class="line"></span><br><span class="line">git <span class="built_in">log</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line">git <span class="built_in">log</span> --pretty=oneline</span><br><span class="line">git <span class="built_in">log</span> --oneline</span><br><span class="line"><span class="comment"># 显示相对 HEAD</span></span><br><span class="line">git reflog</span><br></pre></td></tr></table></figure>
+
+<h3 id="进行版本切换"><a href="#进行版本切换" class="headerlink" title="进行版本切换"></a>进行版本切换</h3><ol>
+<li><p>基于索引值(后退、前进)</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git reflog</span><br><span class="line"></span><br><span class="line">git reset --hard 1234567</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>基于 ^ 符号(只能后退版本)</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一个 ^ 代表一个版本</span></span><br><span class="line">git reset --hard HEAD^</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>基于 ~ 符号(只能后退版本)</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 后退两个版本</span></span><br><span class="line">git reset --hard HEAD~2</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="找回工作区被删除的文件"><a href="#找回工作区被删除的文件" class="headerlink" title="找回工作区被删除的文件"></a>找回工作区被删除的文件</h3><ol>
+<li><p>删除文件并提交</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加文件、暂存文件、提交文件、删除文件、暂存、提交删除动作</span></span><br><span class="line">git reflog</span><br><span class="line"><span class="comment"># 回退至提交被删除文件的版本</span></span><br><span class="line">git reset --hard 1234567</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>未提交，只放入暂存区</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 添加文件、放入暂存区、未提交、之后删除文件</span></span><br><span class="line"><span class="comment"># 从暂存区中拿出被删除的文件</span></span><br><span class="line">git checkout -- tmp.txt</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="比较文件之间的差异"><a href="#比较文件之间的差异" class="headerlink" title="比较文件之间的差异"></a>比较文件之间的差异</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 比较工作区和暂存区之间的差异</span></span><br><span class="line">git diff test.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 比较工作区和本地库之间的差异</span></span><br><span class="line">git diff HEAD test.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据索引值比较</span></span><br><span class="line">git diff 1234567</span><br></pre></td></tr></table></figure>
+
+<h2 id="Git-分支"><a href="#Git-分支" class="headerlink" title="Git 分支"></a>Git 分支</h2><h3 id="分支操作"><a href="#分支操作" class="headerlink" title="分支操作"></a>分支操作</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 变更分支名称</span></span><br><span class="line">git branch -M main</span><br><span class="line"></span><br><span class="line">git branch -v</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换至分支(若无则创建)</span></span><br><span class="line">git branch newName</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换至新分支</span></span><br><span class="line">git checkout newName</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换至 master 分支，合并 newName 分支内容</span></span><br><span class="line">git checkout master</span><br><span class="line">git merge newName</span><br></pre></td></tr></table></figure>
+
+<h2 id="Git-远程仓库"><a href="#Git-远程仓库" class="headerlink" title="Git 远程仓库"></a>Git 远程仓库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置梯子</span></span><br><span class="line">git config --global http.proxy http://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line">git init</span><br><span class="line"></span><br><span class="line">git branch -M main</span><br><span class="line"></span><br><span class="line">git add -A</span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line">git commit -m <span class="string">&quot;***&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 远程仓库别名 origin</span></span><br><span class="line">git remote add origin GitURL</span><br><span class="line"></span><br><span class="line">git push -u origin main</span><br><span class="line"></span><br><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
+
+<h3 id="提交至远端仓库"><a href="#提交至远端仓库" class="headerlink" title="提交至远端仓库"></a>提交至远端仓库</h3><h4 id="创建-Personal-Access-Token"><a href="#创建-Personal-Access-Token" class="headerlink" title="创建 Personal Access Token"></a>创建 Personal Access Token</h4><ol>
+<li>Github页面-&gt;Settings-&gt;Developer settings-&gt;Personal access token</li>
+<li>创建 Token</li>
+</ol>
+<h3 id="多人开发"><a href="#多人开发" class="headerlink" title="多人开发"></a>多人开发</h3><h4 id="拉取远端仓库代码"><a href="#拉取远端仓库代码" class="headerlink" title="拉取远端仓库代码"></a>拉取远端仓库代码</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/lightblueskyline/DecorationSummarize.git</span><br></pre></td></tr></table></figure>
+
+<h4 id="邀请其他开发人员开发"><a href="#邀请其他开发人员开发" class="headerlink" title="邀请其他开发人员开发"></a>邀请其他开发人员开发</h4><ol>
+<li>仓库管理员进入仓库</li>
+<li>Collaborator-&gt;Manage access-&gt;Add people</li>
+<li>邀请可访问人员</li>
+<li>发送邀请地址至被邀请人员</li>
+</ol>
+<h3 id="解决合并冲突"><a href="#解决合并冲突" class="headerlink" title="解决合并冲突"></a>解决合并冲突</h3><h3 id="跨团队协作开发"><a href="#跨团队协作开发" class="headerlink" title="跨团队协作开发"></a>跨团队协作开发</h3><ol>
+<li>Fork 仓库</li>
+<li>在当前仓库创建 Pull Request</li>
+<li>进入项目发起者仓库，查看 Pull Request 回复修改者</li>
+<li>Merge pull request</li>
+</ol>
+
+        </div>
+
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/05/31/Git/index1/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">GitBook 学习</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/05/31/%E5%89%8D%E7%AB%AF/index3/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">jQuery 学习</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">M_0v0_M</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93"><span class="nav-number">1.</span> <span class="nav-text">Git 本地仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93"><span class="nav-number">1.1.</span> <span class="nav-text">初始化本地仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git-%E7%AD%BE%E5%90%8D"><span class="nav-number">1.2.</span> <span class="nav-text">Git 签名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="nav-number">1.3.</span> <span class="nav-text">本地仓库基本操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2"><span class="nav-number">1.4.</span> <span class="nav-text">查看提交历史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E8%A1%8C%E7%89%88%E6%9C%AC%E5%88%87%E6%8D%A2"><span class="nav-number">1.5.</span> <span class="nav-text">进行版本切换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%BE%E5%9B%9E%E5%B7%A5%E4%BD%9C%E5%8C%BA%E8%A2%AB%E5%88%A0%E9%99%A4%E7%9A%84%E6%96%87%E4%BB%B6"><span class="nav-number">1.6.</span> <span class="nav-text">找回工作区被删除的文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AF%94%E8%BE%83%E6%96%87%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E5%B7%AE%E5%BC%82"><span class="nav-number">1.7.</span> <span class="nav-text">比较文件之间的差异</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-%E5%88%86%E6%94%AF"><span class="nav-number">2.</span> <span class="nav-text">Git 分支</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E6%93%8D%E4%BD%9C"><span class="nav-number">2.1.</span> <span class="nav-text">分支操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93"><span class="nav-number">3.</span> <span class="nav-text">Git 远程仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E4%BA%A4%E8%87%B3%E8%BF%9C%E7%AB%AF%E4%BB%93%E5%BA%93"><span class="nav-number">3.1.</span> <span class="nav-text">提交至远端仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-Personal-Access-Token"><span class="nav-number">3.1.1.</span> <span class="nav-text">创建 Personal Access Token</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E4%BA%BA%E5%BC%80%E5%8F%91"><span class="nav-number">3.2.</span> <span class="nav-text">多人开发</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8B%89%E5%8F%96%E8%BF%9C%E7%AB%AF%E4%BB%93%E5%BA%93%E4%BB%A3%E7%A0%81"><span class="nav-number">3.2.1.</span> <span class="nav-text">拉取远端仓库代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%82%80%E8%AF%B7%E5%85%B6%E4%BB%96%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E5%BC%80%E5%8F%91"><span class="nav-number">3.2.2.</span> <span class="nav-text">邀请其他开发人员开发</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E5%90%88%E5%B9%B6%E5%86%B2%E7%AA%81"><span class="nav-number">3.3.</span> <span class="nav-text">解决合并冲突</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B7%A8%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C%E5%BC%80%E5%8F%91"><span class="nav-number">3.4.</span> <span class="nav-text">跨团队协作开发</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>
