@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="M_0v0_M">
+    
+    <title>
+        
+            Raspberry Pi OS 安装 Docker |
+        
+        瘦毛毛
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"lightblueskyline.github.io","root":"/","language":"zh-CN"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                瘦毛毛
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Raspberry Pi OS 安装 Docker</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">M_0v0_M</span>
+                        
+                            <span class="author-label">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-06-01 09:46:16</span>
+        <span class="mobile">2022-06-01 09:46</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%AE%B9%E5%99%A8/">容器</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Docker/">Docker</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/RaspberryPi/">RaspberryPi</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <blockquote>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.raspberrypi.com/software/operating-systems/#raspberry-pi-os-64-bit" >Raspberry Pi OS (64-bit)<i class="fas fa-external-link-alt"></i></a>  </p>
+</blockquote>
+<h2 id="Install-Docker-Engine-on-Debian-Raspberry-Pi-OS"><a href="#Install-Docker-Engine-on-Debian-Raspberry-Pi-OS" class="headerlink" title="Install Docker Engine on Debian(Raspberry Pi OS)"></a><a class="link"   target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/debian/" >Install Docker Engine on Debian(Raspberry Pi OS)<i class="fas fa-external-link-alt"></i></a></h2><h3 id="Uninstall-old-versions"><a href="#Uninstall-old-versions" class="headerlink" title="Uninstall old versions"></a>Uninstall old versions</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt<span class="literal">-get</span> remove docker docker<span class="literal">-engine</span> docker.io containerd runc</span><br><span class="line"><span class="comment"># It’s OK if apt-get reports that none of these packages are installed.</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Install-using-the-repository"><a href="#Install-using-the-repository" class="headerlink" title="Install using the repository"></a>Install using the repository</h3><blockquote>
+<p>For Raspbian, installing using the repository is not yet supported. You must instead use the convenience script.  </p>
+</blockquote>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Set up the repository</span></span><br><span class="line"><span class="comment"># 1. Update the apt package index and install packages to allow apt to use a repository over HTTPS:</span></span><br><span class="line">sudo apt<span class="literal">-get</span> update</span><br><span class="line">sudo apt<span class="literal">-get</span> install \</span><br><span class="line">  ca<span class="literal">-certificates</span> \</span><br><span class="line">  <span class="built_in">curl</span> \</span><br><span class="line">  gnupg \</span><br><span class="line">  lsb<span class="literal">-release</span></span><br><span class="line"><span class="comment"># 2. Add Docker’s official GPG key:</span></span><br><span class="line"><span class="built_in">curl</span> <span class="literal">-fsSL</span> https://download.docker.com/linux/debian/gpg | sudo gpg <span class="literal">--dearmor</span> <span class="literal">-o</span> /usr/share/keyrings/docker<span class="literal">-archive-keyring</span>.gpg</span><br><span class="line"><span class="comment"># 3. Use the following command to set up the stable repository.</span></span><br><span class="line"><span class="built_in">echo</span> \</span><br><span class="line">  <span class="string">&quot;deb [arch=<span class="variable">$</span>(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \</span></span><br><span class="line"><span class="string">  <span class="variable">$</span>(lsb_release -cs) stable&quot;</span> | sudo <span class="built_in">tee</span> /etc/apt/sources.list.d/docker.list &gt; /dev/null</span><br><span class="line"><span class="comment"># Install Docker Engine</span></span><br><span class="line">sudo apt<span class="literal">-get</span> update</span><br><span class="line">sudo apt<span class="literal">-get</span> install docker<span class="literal">-ce</span> docker<span class="literal">-ce-cli</span> containerd.io</span><br><span class="line"><span class="comment"># Verify that Docker Engine is installed correctly</span></span><br><span class="line">sudo docker run hello<span class="literal">-world</span></span><br><span class="line"><span class="comment"># Upgrade Docker Engine</span></span><br><span class="line">sudo apt<span class="literal">-get</span> update</span><br></pre></td></tr></table></figure>
+
+<h3 id="Install-using-the-convenience-script"><a href="#Install-using-the-convenience-script" class="headerlink" title="Install using the convenience script"></a>Install using the convenience script</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">curl</span> <span class="literal">-fsSL</span> https://get.docker.com <span class="literal">-o</span> <span class="built_in">get-docker</span>.sh</span><br><span class="line">sudo sh <span class="built_in">get-docker</span>.sh</span><br></pre></td></tr></table></figure>
+
+<h3 id="Upgrade-Docker-after-using-the-convenience-script"><a href="#Upgrade-Docker-after-using-the-convenience-script" class="headerlink" title="Upgrade Docker after using the convenience script"></a>Upgrade Docker after using the convenience script</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt<span class="literal">-get</span> update</span><br></pre></td></tr></table></figure>
+
+<h3 id="Uninstall-Docker-Engine"><a href="#Uninstall-Docker-Engine" class="headerlink" title="Uninstall Docker Engine"></a>Uninstall Docker Engine</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. Uninstall the Docker Engine, CLI, and Containerd packages:</span></span><br><span class="line">sudo apt<span class="literal">-get</span> purge docker<span class="literal">-ce</span> docker<span class="literal">-ce-cli</span> containerd.io</span><br><span class="line"><span class="comment"># 2. Images, containers, volumes, or customized configuration files on your host are not automatically removed. To delete all images, containers, and volumes:</span></span><br><span class="line">sudo <span class="built_in">rm</span> <span class="literal">-rf</span> /var/lib/docker</span><br><span class="line">sudo <span class="built_in">rm</span> <span class="literal">-rf</span> /var/lib/containerd</span><br><span class="line"><span class="comment"># You must delete any edited configuration files manually.</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Manage-Docker-as-a-non-root-user"><a href="#Manage-Docker-as-a-non-root-user" class="headerlink" title="Manage Docker as a non-root user"></a>Manage Docker as a non-root user</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. Create the docker group.</span></span><br><span class="line">sudo groupadd docker</span><br><span class="line"><span class="comment"># 2. Add your user to the docker group.</span></span><br><span class="line">sudo usermod <span class="literal">-aG</span> docker <span class="variable">$USER</span></span><br><span class="line"><span class="comment"># 3. Log out and log back in so that your group membership is re-evaluated.</span></span><br><span class="line"><span class="comment"># 4. Verify that you can run docker commands without sudo.</span></span><br><span class="line">docker run hello<span class="literal">-world</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Configure-Docker-to-start-on-boot"><a href="#Configure-Docker-to-start-on-boot" class="headerlink" title="Configure Docker to start on boot"></a>Configure Docker to start on boot</h3><blockquote>
+<p>On Debian and Ubuntu, the Docker service is configured to start on boot by default.  </p>
+</blockquote>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Enable</span></span><br><span class="line">sudo systemctl enable docker.service</span><br><span class="line">sudo systemctl enable containerd.service</span><br><span class="line"><span class="comment"># Disable</span></span><br><span class="line">sudo systemctl disable docker.service</span><br><span class="line">sudo systemctl disable containerd.service</span><br></pre></td></tr></table></figure>
+
+<h2 id="Install-Docker-Compose"><a href="#Install-Docker-Compose" class="headerlink" title="Install Docker Compose"></a><a class="link"   target="_blank" rel="noopener" href="https://docs.docker.com/compose/install/" >Install Docker Compose<i class="fas fa-external-link-alt"></i></a></h2><h3 id="Install-Compose-on-Linux-systems"><a href="#Install-Compose-on-Linux-systems" class="headerlink" title="Install Compose on Linux systems"></a>Install Compose on Linux systems</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. Run this command to download the current stable release of Docker Compose:</span></span><br><span class="line">sudo <span class="built_in">curl</span> <span class="literal">-L</span> <span class="string">&quot;https://github.com/docker/compose/releases/download/2.3.3/docker-compose-<span class="variable">$</span>(uname -s)-<span class="variable">$</span>(uname -m)&quot;</span> <span class="literal">-o</span> /usr/local/bin/docker<span class="literal">-compose</span></span><br><span class="line"><span class="comment"># 2. Apply executable permissions to the binary:</span></span><br><span class="line">sudo chmod +x /usr/local/bin/docker<span class="literal">-compose</span></span><br><span class="line"><span class="comment"># 若失敗</span></span><br><span class="line">sudo ln <span class="literal">-s</span> /usr/local/bin/docker<span class="literal">-compose</span> /usr/bin/docker<span class="literal">-compose</span></span><br><span class="line"><span class="comment"># 3. Test the installation.</span></span><br><span class="line">docker<span class="literal">-compose</span> <span class="literal">--version</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Alternative-install-options"><a href="#Alternative-install-options" class="headerlink" title="Alternative install options"></a>Alternative install options</h3><h4 id="Install-using-pip"><a href="#Install-using-pip" class="headerlink" title="Install using pip"></a>Install using pip</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip3 install docker<span class="literal">-compose</span></span><br><span class="line"><span class="comment"># If you are not using virtualenv</span></span><br><span class="line">sudo pip install docker<span class="literal">-compose</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Install-as-a-container"><a href="#Install-as-a-container" class="headerlink" title="Install as a container"></a>Install as a container</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">curl</span> <span class="literal">-L</span> <span class="literal">--fail</span> https://github.com/docker/compose/releases/download/<span class="number">1.29</span>.<span class="number">2</span>/run.sh <span class="literal">-o</span> /usr/local/bin/docker<span class="literal">-compose</span></span><br><span class="line">sudo chmod +x /usr/local/bin/docker<span class="literal">-compose</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Uninstallation"><a href="#Uninstallation" class="headerlink" title="Uninstallation"></a>Uninstallation</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># To uninstall Docker Compose if you installed using curl:</span></span><br><span class="line">sudo <span class="built_in">rm</span> /usr/local/bin/docker<span class="literal">-compose</span></span><br><span class="line"><span class="comment"># To uninstall Docker Compose if you installed using pip:</span></span><br><span class="line">pip uninstall docker<span class="literal">-compose</span></span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/Docker/">#Docker</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/RaspberryPi/">#RaspberryPi</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/06/01/OS/Linux/RaspberryPiOS/index/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Raspberry Pi OS</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/05/31/%E5%AE%B9%E5%99%A8/Docker/index1/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">青龙面板</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">M_0v0_M</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-Docker-Engine-on-Debian-Raspberry-Pi-OS"><span class="nav-number">1.</span> <span class="nav-text">Install Docker Engine on Debian(Raspberry Pi OS)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Uninstall-old-versions"><span class="nav-number">1.1.</span> <span class="nav-text">Uninstall old versions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-using-the-repository"><span class="nav-number">1.2.</span> <span class="nav-text">Install using the repository</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-using-the-convenience-script"><span class="nav-number">1.3.</span> <span class="nav-text">Install using the convenience script</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Upgrade-Docker-after-using-the-convenience-script"><span class="nav-number">1.4.</span> <span class="nav-text">Upgrade Docker after using the convenience script</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Uninstall-Docker-Engine"><span class="nav-number">1.5.</span> <span class="nav-text">Uninstall Docker Engine</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Manage-Docker-as-a-non-root-user"><span class="nav-number">1.6.</span> <span class="nav-text">Manage Docker as a non-root user</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Configure-Docker-to-start-on-boot"><span class="nav-number">1.7.</span> <span class="nav-text">Configure Docker to start on boot</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-Docker-Compose"><span class="nav-number">2.</span> <span class="nav-text">Install Docker Compose</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Install-Compose-on-Linux-systems"><span class="nav-number">2.1.</span> <span class="nav-text">Install Compose on Linux systems</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Alternative-install-options"><span class="nav-number">2.2.</span> <span class="nav-text">Alternative install options</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Install-using-pip"><span class="nav-number">2.2.1.</span> <span class="nav-text">Install using pip</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Install-as-a-container"><span class="nav-number">2.2.2.</span> <span class="nav-text">Install as a container</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Uninstallation"><span class="nav-number">2.3.</span> <span class="nav-text">Uninstallation</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>
