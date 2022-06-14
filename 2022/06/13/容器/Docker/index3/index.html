@@ -9,6 +9,8 @@
     
     <title>
         
+            容器实例部署 |
+        
         瘦毛毛
     </title>
     
@@ -57,7 +59,7 @@
                 <ul class="menu-list">
                     
                         <li class="menu-item">
-                            <a class="active"
+                            <a class=""
                                href="/"
                             >
                                 首页
@@ -104,7 +106,7 @@
         <ul class="drawer-menu-list">
             
                 <li class="drawer-menu-item flex-center">
-                    <a class="active"
+                    <a class=""
                        href="/">首页</a>
                 </li>
             
@@ -138,110 +140,114 @@
             <div class="main-content">
 
                 
-                    <div class="home-content-container fade-in-down-animation">
-    <ul class="home-article-list">
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">容器实例部署</span>
+        </div>
+
         
-            <li class="home-article-item">
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2022/05/31/%E5%85%B6%E4%BB%96/index1/">
-                        油管下载脚本
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        yt-dlp
-安裝 Python3123py --versionpython --versionpy --list
-
-安裝 pip12345678910111213141516# 確認是否安裝py -m pip --version# 方法一 ensu...
-                    
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
                 </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Tue May 31 2022 00:12:34 GMT+0800">2022-05-31</span></span>
-        
-            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/categories/%E5%85%B6%E4%BB%96/">其他</a>&nbsp;
-                        </li>
-                    
-                    
-                </ul>
-            </span>
-        
-        
-    </div>
-
-    <a href="/2022/05/31/%E5%85%B6%E4%BB%96/index1/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
+                <div class="info">
+                    <div class="author">
+                        <span class="name">M_0v0_M</span>
+                        
+                            <span class="author-label">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-06-13 10:40:49</span>
+        <span class="mobile">2022-06-13 10:40</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
                 
+                    <li>
+                        <a href="/categories/%E5%AE%B9%E5%99%A8/">容器</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Docker/">Docker</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
 
-                <h3 class="home-article-title">
-                    <a href="/2022/05/30/%E5%85%B6%E4%BB%96/index/">
-                        How to use Hexo
-                    </a>
-                </h3>
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
 
-                <div class="home-article-content markdown-body">
-                    
-                        欢迎使用 Hexo！请参阅 帮助文档git config --list --show-origin
-开始使用概述安装前提
-Node.js
-Git
-
-安装 Hexo12345# 安装命令npm install -g hexo-cli# 安装完成后，执行...
-                    
+                    </div>
                 </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fas fa-history"></i>&nbsp;<span class="home-article-date" data-date="Mon May 30 2022 23:50:26 GMT+0800">2022-05-30</span></span>
+            </div>
         
-            <span class="home-article-category"><i class="fas fa-folder"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/categories/%E5%85%B6%E4%BB%96/">其他</a>&nbsp;
-                        </li>
-                    
-                    
-                </ul>
-            </span>
+
+        <div class="article-content markdown-body">
+            <h2 id="MariaDB"><a href="#MariaDB" class="headerlink" title="MariaDB"></a><a class="link"   target="_blank" rel="noopener" href="https://hub.docker.com/_/mariadb" >MariaDB<i class="fas fa-external-link-alt"></i></a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拉取镜像</span></span><br><span class="line">docker pull mariadb:latest</span><br><span class="line"><span class="comment"># 部署指令</span></span><br><span class="line">docker run --detach \</span><br><span class="line">--name MariaDBEx \</span><br><span class="line">--<span class="built_in">env</span> MARIADB_ROOT_PASSWORD=<span class="string">&quot;&quot;</span> \</span><br><span class="line">--publish 3306:3306 \</span><br><span class="line">ecc004eed0c2</span><br><span class="line"><span class="comment"># 其他指令</span></span><br><span class="line">docker <span class="built_in">exec</span> -it MariaDBEx bash</span><br></pre></td></tr></table></figure>
+
+<h2 id="Adminer"><a href="#Adminer" class="headerlink" title="Adminer"></a><a class="link"   target="_blank" rel="noopener" href="https://hub.docker.com/_/adminer" >Adminer<i class="fas fa-external-link-alt"></i></a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 拉取镜像</span></span><br><span class="line">docker pull adminer:latest</span><br><span class="line"><span class="comment"># 部署指令</span></span><br><span class="line">docker run --detach \</span><br><span class="line">--name AdminerEx \</span><br><span class="line">--publish 8080:8080 \</span><br><span class="line">9e4c234130a2</span><br><span class="line"><span class="comment"># 其他指令</span></span><br><span class="line">docker logs AdminerEx</span><br></pre></td></tr></table></figure>
+
+        </div>
+
         
+
         
-    </div>
-
-    <a href="/2022/05/30/%E5%85%B6%E4%BB%96/index/">阅读全文&nbsp;<i class="fas fa-angle-right"></i></a>
-</div>
-
-            </li>
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/Docker/">#Docker</a>&nbsp;
+                    </li>
+                
+            </ul>
         
-    </ul>
 
-    <div class="home-paginator">
-        <div class="paginator">
-    
-        <a class="prev btn"
-           href="/page/2/"
-        >上一页</a>
-    
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/06/01/OS/Linux/Ubuntu/index/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Ubuntu OS</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
 
-    
-</div>
-
+        
     </div>
 </div>
 
@@ -289,6 +295,23 @@ Git
     </div>
 
     
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
 
     <div class="right-bottom-side-tools">
         <div class="side-tools-container">
@@ -334,6 +357,14 @@ Git
     </div>
 
     
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MariaDB"><span class="nav-number">1.</span> <span class="nav-text">MariaDB</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Adminer"><span class="nav-number">2.</span> <span class="nav-text">Adminer</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
 
     <div class="image-viewer-container">
     <img src="">
@@ -343,7 +374,6 @@ Git
     
 
 </main>
-
 
 
 
@@ -370,6 +400,14 @@ Git
 
 
 <div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
     
 </div>
 
