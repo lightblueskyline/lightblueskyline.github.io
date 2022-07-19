@@ -9,7 +9,7 @@
     
     <title>
         
-            Git 命令 |
+            股票高阶训练营 |
         
         瘦毛毛
     </title>
@@ -144,7 +144,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">Git 命令</span>
+            <span class="title-hover-animation">股票高阶训练营</span>
         </div>
 
         
@@ -163,8 +163,8 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-05-31 06:28:07</span>
-        <span class="mobile">2022-05-31 06:28</span>
+        <span class="pc">2022-07-19 05:37:58</span>
+        <span class="mobile">2022-07-19 05:37</span>
     </span>
     
         <span class="article-categories article-meta-item">
@@ -172,12 +172,27 @@
             <ul>
                 
                     <li>
-                        <a href="/categories/Git/">Git</a>&nbsp;
+                        <a href="/categories/%E7%90%86%E8%B4%A2/">理财</a>&nbsp;
                     </li>
                 
             </ul>
         </span>
     
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/private/">private</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E8%82%A1%E7%A5%A8/">股票</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
     
 
     
@@ -196,48 +211,47 @@
         
 
         <div class="article-content markdown-body">
-            <h2 id="重命名分支"><a href="#重命名分支" class="headerlink" title="重命名分支"></a>重命名分支</h2><h3 id="重命名本地分支"><a href="#重命名本地分支" class="headerlink" title="重命名本地分支"></a>重命名本地分支</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1、重命名本地分支：</span></span><br><span class="line">git branch -m &lt;old_branch_name&gt; &lt;new_branch_name&gt;</span><br><span class="line"><span class="comment"># 2、推送这个新分支，从而创建一个新的远程分支：</span></span><br><span class="line">git push origin &lt;new_branch_name&gt;</span><br><span class="line"><span class="comment"># 3、删除旧的远程分支：</span></span><br><span class="line">git push origin -d -f &lt;old_branch_name&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="重命名当前分支"><a href="#重命名当前分支" class="headerlink" title="重命名当前分支"></a>重命名当前分支</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1、重命名当前分支：</span></span><br><span class="line">git branch -m &lt;new_branch_name&gt;</span><br><span class="line"><span class="comment"># 2、推送新分支，从而创建一个新的远程分支：</span></span><br><span class="line">git push origin &lt;new_branch_name&gt;</span><br><span class="line"><span class="comment"># 3、删除旧的远程分支：</span></span><br><span class="line">git push origin -d -f &lt;old_branch_name&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="删除本地和远程分支"><a href="#删除本地和远程分支" class="headerlink" title="删除本地和远程分支"></a>删除本地和远程分支</h2><h3 id="删除本地分支"><a href="#删除本地分支" class="headerlink" title="删除本地分支"></a>删除本地分支</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1、签出存储库的主分支（例如 main 或 master）：</span></span><br><span class="line">git checkout &lt;central_branch_name&gt;</span><br><span class="line"><span class="comment"># 2、列出所有分支（本地和远程）：</span></span><br><span class="line">git branch -a</span><br><span class="line"><span class="comment"># 3、删除本地分支：</span></span><br><span class="line">git branch -d &lt;name_of_the_branch&gt;</span><br><span class="line"><span class="comment"># 删除所有本地主题分支并仅保留 main 分支：</span></span><br><span class="line">git branch | grep -v main | xargs git branch -d</span><br></pre></td></tr></table></figure>
-
-<h3 id="删除远程分支"><a href="#删除远程分支" class="headerlink" title="删除远程分支"></a>删除远程分支</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1、签出存储库的主分支（通常是 main 或 master）：</span></span><br><span class="line">git checkout &lt;central_branch_name&gt;</span><br><span class="line"><span class="comment"># 2、列出所有分支（本地和远程）：</span></span><br><span class="line">git branch -a</span><br><span class="line"><span class="comment"># 3、删除远程分支：</span></span><br><span class="line">git push origin -d &lt;name_of_the_branch&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="查看远程主题分支的作者"><a href="#查看远程主题分支的作者" class="headerlink" title="查看远程主题分支的作者"></a>查看远程主题分支的作者</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1、签出存储库的主分支（例如 main 或 master）：</span></span><br><span class="line">git checkout &lt;central_branch_name&gt;</span><br><span class="line"><span class="comment"># 2、删除不存在的远程分支的分支引用：</span></span><br><span class="line">git remote prune origin</span><br><span class="line"><span class="comment"># 3、列出存储库中所有远程主题分支的作者，</span></span><br><span class="line"><span class="comment"># 使用 --format 选项，</span></span><br><span class="line"><span class="comment"># 并配合特殊的选择器来只打印你想要的信息（在本例中，%(authorname) 和 %(refname) 分别代表作者名字和分支名称）：</span></span><br><span class="line">git for-each-ref --<span class="built_in">sort</span>=authordate --format=<span class="string">&#x27;%(authorname) %(refname)&#x27;</span> refs/remotes</span><br><span class="line"></span><br><span class="line">git for-each-ref --<span class="built_in">sort</span>=authordate \</span><br><span class="line">--format=<span class="string">&#x27;%(color:cyan)%(authordate:format:%m/%d/%Y %I:%M %p)%(align:25,left)%(color:yellow) %(authorname)%(end)%(color:reset)%(refname:strip=3)&#x27;</span> \</span><br><span class="line">refs/remotes</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 grep 获取特定远程主题分支的作者：</span></span><br><span class="line">git for-each-ref --<span class="built_in">sort</span>=authordate \</span><br><span class="line">--format=<span class="string">&#x27;%(authorname) %(refname)&#x27;</span> \</span><br><span class="line">refs/remotes | grep &lt;topic_branch_name&gt;</span><br></pre></td></tr></table></figure>
-
+            <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="密码错误，请重新输入！" data-whm="抱歉, 当前文章不能被校验, 不过您还是可以看看解密后的内容。">
+  <script id="hbeData" type="hbeData" data-hmacdigest="cd2e873d99a5fa750740dbf9d91c47b951d0e0a31a9e7383f2396c701b312dcb">e0fbe4a6eaa11e269894f05b8ed1dde376036bdc3467cf2b7b7c9a0e88c5d6ee8594c1d38fe423dff30d5d5e9b652019633e70eebae067f050fb2e74b94c8ec09a589bc58bb4eba85b710b077bb71b5297c4cdc6fe93b84a0a776f3676a77755b39194e9683d4ba2532b58d044028d6af4e4043dda708337b4c81d2988b6d8fd9e2902814e092dee9c4ca236ff86263e636865025ae1512a66feb06682afe855c4dd20adbdb2d0216d0c9ba3554fd8b672bc28af3919fcf3919445c01a508af7d7140548056605c7ce7c0d557ed2b2859438fe17cb18a98b5d4a5d1541962d91f570b8542269b56852c5ddaf93e6b77fcc3cd860ebb09ed0fd1be25b30fdf41b7cb6ed8c486306581761c3d6be048745b6e19722f8701fa48e214629907d7a13b4b67d92431661a1f01e9a4e1828751ff95da035392de251e2f1a9e268e900303a748c638c9054e04b196a351df1fd96a11be9a26b3aa8d42335d2ac2cd16b1cae64b973154689a51f8a69bd2d1cbe567f94e8f83456b9b6fab0c225fe48672a28c0e7799c98367038f9d77adbb96911bb2afc027df4e631f6162c3fd193e6e12bc46262395307f7ba0a13c664997cb3c6b39410468577ea68ec49a3a24e55183343f03f10f1c1889429a30d8beb74e6102d9bc60c55dc338ef2f6422ec3f6e66c41275fc28b0cfbe720e13f11ddd858b46ff89c1145c16441800b61c6b6c073ac6152478dba1a3567bc0608f232cb2f86403b6ca8250938f1f4547b3f8dc53445ed16ed4581f6af437b2b4631bb85dc843f77cceed248545f1acb8065ee21cf194f4ef784de40db21a5cc4959977ad592b7fa4a7dadaa9e50faa0f9d185e7aab4c13b15256f904b5a017a4a6fbf1ee8add7ff7afe4fca225b40768128801c05a75c871b17a38476e65d5c454d611bf3a6b0ec09106d5c0f7d8db3bc8d58c6f30b4bf8c333357285fadc70811fdab8db78698940d90b405b3e863d7dbf36db3b3668d862e2c41456e50929fe9d059763b0d49ac9613d8840a272444ddd0bf7cc5775d29af6308682ad79178690286f3f86eef2e594490248a5437ee3ad0da40a71a5550ad155e5b8eb3eff9f086638c9c76f83e6972fa6b3db8e0ccd3887944bda27c932e6399eeedddecf4be27578e9b6fdb7150d88f5eef52d000b7bcb5beba7531860d03fc4854ea234d673c8651d343bda986b76f6e40eeeab66e55a69f6a6f335572078064695d272ff6d24ef8be4a173694a5502948c830948f812ecaae00ae6775abfee69260ce666cc3be5e17b5196189e14d8eb6bc2d7fa153fa2397573fc3dadd2cd56a71be0a9d833d3148fba21b6f359a7bb697a1dfe6ba22056e33638d955bbfca26514ef29770f8e38b6f4dfc14f9b16051756f16845f8f2f62e670757bdae470f5a9dd05d2b456fd7432dcdce1778f09c2a7c09f0044f8ff53cca8424350c28c8a7d412f481c1fd7f9a40bafa9c3bf7376a23d1f25d5e0e092a8c86e9fe197a89962e4dd5ca664e7ad05c943a38b4427b633cb1bd5068a2bd93645eb1ea778de6bfbed9e4de687a695b009c673e17f1c3edc318f734bbfdd20e40ce2bde8885134240bd04c661e9cfef40be24ab169780792c3b6bc4b8acfb896d8b5da86201cf5d768c07324d7b600681cd7b293d24978810393daf7ac68bff0a8e22415509d22cc0e3184a4f2b36f261884a8542b878ef48f756388fb3f6e63bcef0efe33cda17df017eff9c8191084ff1aa976f554be7e74837274ffff7787e69012ce138092fb9d038437f241aef98e21953496572dd83c91b1dee4e357d764bd93e0154b6a409405eab0906e0fb52452573649935f585b366fc170774b367512e9dbf555c555387ea788b7edb6f098ecf7e7710256077f334f0390344e61fffc60bf83d5b1626c2a49fc5c2bc59a4f09f4f0e4b930308fb4a76bb445724629bcae6bd0238bf1471f2344cbba8afad1304b4afcc251445227cd42372ff28c329630a607f557b4723ae7b89aaf0e99dda97800915adcaf9820c5f5e6744f7ad2be65628d268fb4d8fe3db9aaa86a847a202affbc09483116ae04dda3f50826f6f8a31d3b8edfee522309251e0ffc5388ad8faa7f292c31a76f8d62eea6031cc418b11cb1d01daa965cf52dc6e0929864050af0207c17f5c5663bf976f749c7044020527d35e40d1ebb4b032f667600997c77832f906251d53de203877f8bc9cc16043dc243fbe51b1b7bbd54f8bfbef5aed7f7e22f472883f1b7b5f1be07462dcaccf74c435600c65a705424d35cad7a6a6bc0109fd85b5dfa32f8b3484d97cd0e65ed62fbdb34b46d7111100d191846449c0c3324aa6b329b084386331c12b9d05364013416cf7134d1c029272b44952c53113e052c26ad4dd1025122ce12beda7b43a5bff22b80fd339b33bdfc0940fcc5866343faa81e188c59631d913887cce475a441788b6b51d128734d616f8207a67689df86c9c0fd6dd21d1cfb0a8c3b5db6ed72e80862e6c6564e96826d11c273eee42bca52ed2adc20792e4677bb2620b5ac4f2fc0c7688024c0510a0a1951c8dfda1def5ffe23c5735c80bce8a2910fcf86a113dd9c505f1a9dc5b2981e0187c1bc51c6414a77dc65b585a69711a5f02b1d698cf67468a1a0e0cfb78a2ba05f68e02125214fde7ff6ac180a355204c8f78c1d020be2239e3e5efda9db71caf94b57650269d6f22894ef51b3b938b5788113ce186332fc1f41d45f6adf983c73c01623d3bbdaa557e8ebc73</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">请输入密码后查看！</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
         </div>
 
         
 
         
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/private/">#private</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E8%82%A1%E7%A5%A8/">#股票</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
 
         
             <div class="article-nav">
-                
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2022/05/31/OS/Linux/index/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">Linux系统磁盘调优及分析相关命令汇总</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
                 
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/05/31/Git/index1/"
+                           href="/2022/07/15/%E5%89%8D%E7%AB%AF/JavaScript/index3/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">GitBook 学习</span>
+                                <span class="post-nav-title-item">JavaScript 事件机制</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -362,7 +376,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E5%91%BD%E5%90%8D%E5%88%86%E6%94%AF"><span class="nav-number">1.</span> <span class="nav-text">重命名分支</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%91%BD%E5%90%8D%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF"><span class="nav-number">1.1.</span> <span class="nav-text">重命名本地分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%91%BD%E5%90%8D%E5%BD%93%E5%89%8D%E5%88%86%E6%94%AF"><span class="nav-number">1.2.</span> <span class="nav-text">重命名当前分支</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%9C%AC%E5%9C%B0%E5%92%8C%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF"><span class="nav-number">2.</span> <span class="nav-text">删除本地和远程分支</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF"><span class="nav-number">2.1.</span> <span class="nav-text">删除本地分支</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF"><span class="nav-number">2.2.</span> <span class="nav-text">删除远程分支</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E8%BF%9C%E7%A8%8B%E4%B8%BB%E9%A2%98%E5%88%86%E6%94%AF%E7%9A%84%E4%BD%9C%E8%80%85"><span class="nav-number">3.</span> <span class="nav-text">查看远程主题分支的作者</span></a></li></ol>
+        
     </div>
 </div>
         </aside>
