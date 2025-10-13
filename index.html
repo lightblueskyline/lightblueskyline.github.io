@@ -71,6 +71,49 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-docker3" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/10/13/docker3/" class="article-date">
+  <time class="dt-published" datetime="2025-10-13T09:18:18.000Z" itemprop="datePublished">2025-10-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/docker/">docker</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/10/13/docker3/">通過 Docker Compose 部署 Portainer</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># docker volume create portainer_data</span></span><br><span class="line"><span class="comment"># docker compose --file portainer-compose.yaml pull portainer / 只拉取文件中定義的鏡像</span></span><br><span class="line"><span class="comment"># docker compose --file portainer-compose.yaml up --detach</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">portainer:</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">portainer</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">portainer/portainer-ce:lts</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/var/run/docker.sock:/var/run/docker.sock</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">portainer_data:/data</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="number">9443</span><span class="string">:9443</span></span><br><span class="line">      <span class="comment"># - 8000:8000  # Remove if you do not intend to use Edge Agents</span></span><br><span class="line"></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line">  <span class="attr">portainer_data:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">portainer_data</span></span><br><span class="line"></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line">  <span class="attr">default:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">portainer_network</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/10/13/docker3/" data-id="cuid-e6erJwsRK142MbB3n9sB" data-title="通過 Docker Compose 部署 Portainer" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-docker2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/10/13/docker2/" class="article-date">
@@ -102,7 +145,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/13/docker2/" data-id="cuidxpF98emxpY6RnGSwZJohm" data-title="通過 Docker Compose 部署 WordPress 和 MariaDB" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/13/docker2/" data-id="cuid4JGepU7aDDrOXP2-yMjSb" data-title="通過 Docker Compose 部署 WordPress 和 MariaDB" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -145,7 +188,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/13/docker1/" data-id="cuidz9nNBbvBIb1UgVbCUmH09" data-title="通過 Docker Compose 設置 phpMyAdmin 和 MySQL" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/13/docker1/" data-id="cuidugXwGpJ9P4i9jtLTBEYrA" data-title="通過 Docker Compose 設置 phpMyAdmin 和 MySQL" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -193,6 +236,10 @@
     <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2025/10/13/docker3/">通過 Docker Compose 部署 Portainer</a>
+          </li>
         
           <li>
             <a href="/2025/10/13/docker2/">通過 Docker Compose 部署 WordPress 和 MariaDB</a>
