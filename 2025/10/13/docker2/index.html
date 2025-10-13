@@ -4,13 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>瘦毛毛</title>
+  <title>通過 Docker Compose 部署 WordPress 和 MariaDB | 瘦毛毛</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="瘦毛毛">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="123456789101112131415161718192021222324252627282930313233343536# docker compose --file wordpress-mariadb-compose.yaml pull portainer &#x2F; 只拉取文件中定義的鏡像# docker compose --file wordpress-mariadb-compose.yaml">
+<meta property="og:type" content="article">
+<meta property="og:title" content="通過 Docker Compose 部署 WordPress 和 MariaDB">
+<meta property="og:url" content="http://example.com/2025/10/13/docker2/index.html">
 <meta property="og:site_name" content="瘦毛毛">
+<meta property="og:description" content="123456789101112131415161718192021222324252627282930313233343536# docker compose --file wordpress-mariadb-compose.yaml pull portainer &#x2F; 只拉取文件中定義的鏡像# docker compose --file wordpress-mariadb-compose.yaml">
 <meta property="og:locale">
+<meta property="article:published_time" content="2025-10-13T09:02:37.000Z">
+<meta property="article:modified_time" content="2025-10-13T09:04:13.055Z">
 <meta property="article:author" content="M_0v0_M">
 <meta name="twitter:card" content="summary">
   
@@ -69,9 +73,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-docker2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-docker2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/10/13/docker2/" class="article-date">
   <time class="dt-published" datetime="2025-10-13T09:02:37.000Z" itemprop="datePublished">2025-10-13</time>
@@ -88,8 +90,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/10/13/docker2/">通過 Docker Compose 部署 WordPress 和 MariaDB</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      通過 Docker Compose 部署 WordPress 和 MariaDB
     </h1>
   
 
@@ -109,54 +111,19 @@
     </footer>
   </div>
   
-</article>
-
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-docker1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/10/13/docker1/" class="article-date">
-  <time class="dt-published" datetime="2025-10-13T08:57:01.000Z" itemprop="datePublished">2025-10-13</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/docker/">docker</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/10/13/docker1/">通過 Docker Compose 設置 phpMyAdmin 和 MySQL</a>
-    </h1>
+    <a href="/2025/10/13/docker1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">通過 Docker Compose 設置 phpMyAdmin 和 MySQL</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">mysql:</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">mysql_container</span> <span class="comment"># 容器名稱</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">mysql:latest</span> <span class="comment"># 鏡像版本</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span> <span class="comment"># 自動重啓</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">MYSQL_DATABASE:</span> <span class="string">first_db</span> <span class="comment"># 數據庫名稱</span></span><br><span class="line">      <span class="attr">MYSQL_ROOT_PASSWORD:</span>  <span class="comment"># root 賬戶密碼</span></span><br><span class="line">      <span class="attr">MYSQL_USER:</span> <span class="string">dbuser</span> <span class="comment"># 賬戶名稱</span></span><br><span class="line">      <span class="attr">MYSQL_PASSWORD:</span>  <span class="comment"># dbuser 賬戶密碼</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/home/light/mysql_data:/var/lib/mysql</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;53306:3306&quot;</span> <span class="comment"># 主機端口:容器端口</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">phpmyadmin:</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">phpmyadmin_container</span> <span class="comment"># 容器名稱</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">phpmyadmin:latest</span> <span class="comment"># 鏡像版本</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span> <span class="comment"># 自動重啓</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">PMA_ARBITRARY:</span> <span class="number">1</span></span><br><span class="line">      <span class="attr">PMA_HOST:</span> <span class="string">mysql</span></span><br><span class="line">      <span class="attr">PMA_PORT:</span> <span class="number">3306</span></span><br><span class="line">      <span class="attr">MYSQL_ROOT_PASSWORD:</span>  <span class="comment"># MySQL root 賬戶密碼</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">mysql</span> <span class="comment"># 確保 phpMyAdmin 在 MySQL 容器之後啓動</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;58080:80&quot;</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/13/docker1/" data-id="cuidz9nNBbvBIb1UgVbCUmH09" data-title="通過 Docker Compose 設置 phpMyAdmin 和 MySQL" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-
-  
 
 
 </section>
