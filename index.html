@@ -71,6 +71,104 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-technique2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/10/14/technique2/" class="article-date">
+  <time class="dt-published" datetime="2025-10-14T01:53:46.000Z" itemprop="datePublished">2025-10-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/technique/">technique</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/10/14/technique2/">Windows11 共享 WiFi 網絡給路由器</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ol>
+<li><p>Windows 開啓 WLAN 共享</p>
+<ul>
+<li>Win + R 打開運行，輸入 <code>ncpa.cpl</code> 並回車，打開網絡連接窗口。</li>
+<li>右鍵點擊 WLAN 網絡，選擇 “屬性”。</li>
+<li>切換到 “共享” 標籤，勾選 “允許其他網絡用戶通過此計算機的 Internet 連接來連接”。</li>
+<li>在 “家庭網絡連接” 下拉菜單中，選擇你想要共享的網絡連接 (通常是以太網或其他網絡接口)。</li>
+<li>點擊 “確定” 保存設置。</li>
+</ul>
+</li>
+<li><p>使用網綫連接路由器的 WAN 口和電腦的有綫網絡接口</p>
+</li>
+<li><p>設置路由器</p>
+<ul>
+<li>登錄路由器管理界面，通常是通過瀏覽器訪問</li>
+<li>設置路由器的 WAN 口爲自動獲取 IP 地址 (DHCP)。</li>
+<li>保存設置並重啓路由器。</li>
+</ul>
+</li>
+<li><p>連接測試</p>
+<ul>
+<li>確保路由器成功獲取到來自 Windows 的 IP 地址。</li>
+<li>使用連接到路由器的設備測試網絡連接，確保可以訪問互聯網。</li>
+</ul>
+</li>
+<li><p>注意事項</p>
+<ul>
+<li>確保 Windows 設備保持開啓狀態，否則路由器將無法訪問互聯網。</li>
+<li>根據需要調整防火牆設置，以允許網絡共享。</li>
+<li>如果遇到問題，可以嘗試重新啓動 Windows 設備和路由器。</li>
+</ul>
+</li>
+<li><p>配置靜態路由，以提供共享網絡的電腦可以訪問接入路由器的設配</p>
+<ul>
+<li><p>在 Windows 設備上打開命令提示符 (以管理員身份運行)。</p>
+</li>
+<li><p>使用 <code>ipconfig</code> 命令查看 Windows IP 配置。</p>
+</li>
+<li><p>使用命令 <code>arp -a</code> 查看路由器的 IP 地址和 MAC 地址。</p>
+</li>
+<li><p>在列表中查找 192.168.137.x 的地址，這通常是 Windows 共享網絡的默認網段。</p>
+</li>
+<li><p>記下路由器的 IP 地址 (例如 192.168.137.123)。</p>
+</li>
+<li><p>使用 <code>route print</code> 命令查看當前的路由表。</p>
+</li>
+<li><p>添加靜態路由，命令格式如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># route add &lt;目標網段&gt; mask &lt;子網掩碼&gt; &lt;網關地址&gt; metric &lt;跳數&gt; if &lt;接口號&gt;</span></span><br><span class="line"><span class="comment"># 添加靜態路由</span></span><br><span class="line"><span class="comment"># route -p add &lt;路由器LAN网段&gt; MASK &lt;子网掩码&gt; &lt;路由器WAN口IP&gt;</span></span><br><span class="line">route -p add 192.168.123.0 MASK 255.255.255.0 192.168.137.123</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>刪除靜態路由，命令格式如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># route delete &lt;目標網段&gt;</span></span><br><span class="line"><span class="comment"># route delete &lt;網絡目標&gt;</span></span><br><span class="line">route delete 192.168.123.0</span><br><span class="line"><span class="comment"># (推薦) 詳細刪除 route delete &lt;網絡目標&gt; MASK &lt;掩碼&gt; &lt;網關&gt;</span></span><br><span class="line">route delete 192.168.123.0 MASK 255.255.255.0 192.168.137.123</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>通過 SSH 連接接入路由器的樹莓派 (此種網絡共享方式，需要路由器配置端口轉發)</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 192.168.137.123 是路由器的 WAN 口 IP</span></span><br><span class="line"><span class="comment"># 默認端口 22</span></span><br><span class="line">ssh pi@192.168.137.123</span><br><span class="line"><span class="comment"># 通過非標準接口</span></span><br><span class="line">ssh -p 51022 pi@192.168.137.123</span><br><span class="line"><span class="comment"># 調試模式</span></span><br><span class="line">ssh -v -p 51022 pi@192.168.137.123</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/10/14/technique2/" data-id="cuidXT5rSWlJDxFKErqZ5WDMa" data-title="Windows11 共享 WiFi 網絡給路由器" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-technique1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/10/14/technique1/" class="article-date">
@@ -128,7 +226,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/14/technique1/" data-id="cuidr-mfMbFPrqvHq1eKPcCbF" data-title="油管下载脚本 yt-dlp (Windows11)" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/14/technique1/" data-id="cuidfgHZ6J7FFUmeuvxYh3PFv" data-title="油管下载脚本 yt-dlp (Windows11)" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -171,7 +269,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/13/docker3/" data-id="cuidFrG7gXMfKI8dUR3Ksi17z" data-title="通過 Docker Compose 部署 Portainer" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/13/docker3/" data-id="cuidZYz4ZE_YONRul8oPkBZWU" data-title="通過 Docker Compose 部署 Portainer" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -214,7 +312,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/13/docker2/" data-id="cuidVaCQE9GcDzf8YCEpxY8RS" data-title="通過 Docker Compose 部署 WordPress 和 MariaDB" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/13/docker2/" data-id="cuidpphM2tQVlLa0zcmHBjt2W" data-title="通過 Docker Compose 部署 WordPress 和 MariaDB" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -257,7 +355,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/13/docker1/" data-id="cuidVuV_xU5WNTIZoW6pyW8Hw" data-title="通過 Docker Compose 設置 phpMyAdmin 和 MySQL" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/13/docker1/" data-id="cuidEtduiZxStZAMojTCRZQSO" data-title="通過 Docker Compose 設置 phpMyAdmin 和 MySQL" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -305,6 +403,10 @@
     <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2025/10/14/technique2/">Windows11 共享 WiFi 網絡給路由器</a>
+          </li>
         
           <li>
             <a href="/2025/10/14/technique1/">油管下载脚本 yt-dlp (Windows11)</a>
