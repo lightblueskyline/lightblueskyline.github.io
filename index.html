@@ -71,6 +71,64 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-raspberryPi1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/10/20/raspberryPi1/" class="article-date">
+  <time class="dt-published" datetime="2025-10-20T01:38:30.000Z" itemprop="datePublished">2025-10-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Raspberry-Pi/">Raspberry Pi</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/10/20/raspberryPi1/">raspberryPi1</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="Raspberry-Pi-OS-配置通過代理伺服器訪問網絡"><a href="#Raspberry-Pi-OS-配置通過代理伺服器訪問網絡" class="headerlink" title="Raspberry Pi OS 配置通過代理伺服器訪問網絡"></a><a target="_blank" rel="noopener" href="https://www.raspberrypi.com/documentation/computers/configuration.html#use-a-proxy-server">Raspberry Pi OS 配置通過代理伺服器訪問網絡</a></h2><ol>
+<li><p>打開終端，編輯環境文件</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> nano /etc/environment</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在文件末尾添加以下行，將 <code>http_proxy</code> 和 <code>https_proxy</code> 替換為您的代理伺服器地址和端口</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> http_proxy=<span class="string">&quot;http://127.0.0.1:7897&quot;</span></span><br><span class="line"><span class="built_in">export</span> https_proxy=<span class="string">&quot;http://127.0.0.1:7897&quot;</span></span><br><span class="line"><span class="built_in">export</span> no_proxy=<span class="string">&quot;localhost,127.0.0.1,::1,192.168.0.0/16,10.0.0.0/8,172.16.0.0/12&quot;</span></span><br><span class="line"><span class="comment"># Ctrl + X 保存並退出</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新 sudoers 文件</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> visudo</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在文件末尾添加以下行</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Defaults env_keep += <span class="string">&quot;http_proxy https_proxy no_proxy&quot;</span></span><br><span class="line"><span class="comment"># Ctrl + X 保存並退出</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重新啟動 Raspberry Pi 以應用更改</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> reboot</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/10/20/raspberryPi1/" data-id="cuidjImIk1IGiUir9qrMBSvnG" data-title="raspberryPi1" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-dotNet1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/10/14/dotNet1/" class="article-date">
@@ -111,7 +169,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/14/dotNet1/" data-id="cuid51lwOd1jWB1vPQFRglqwq" data-title="在 Raspberry Pi OS 中安裝 .NET SDK 或者 .NET Runtime" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/14/dotNet1/" data-id="cuidt50yQ0XHRttWl8f9pSi4n" data-title="在 Raspberry Pi OS 中安裝 .NET SDK 或者 .NET Runtime" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -211,7 +269,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/14/technique2/" data-id="cuid_xYmsR_pk7wEC3y2utFAT" data-title="Windows11 共享 WiFi 網絡給路由器" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/14/technique2/" data-id="cuiduVEBvOMMmLiVHFK1xJexz" data-title="Windows11 共享 WiFi 網絡給路由器" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -280,7 +338,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/14/technique1/" data-id="cuidLHVxJoJY2IK8akSnK0zue" data-title="油管下载脚本 yt-dlp (Windows11)" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/14/technique1/" data-id="cuidyKFEVahCacKpgBfBzq3zE" data-title="油管下载脚本 yt-dlp (Windows11)" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -323,7 +381,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/13/docker3/" data-id="cuidkNlmVwJIIplLPf2acwQHj" data-title="通過 Docker Compose 部署 Portainer" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/13/docker3/" data-id="cuidRfSSF5TWmZfeQ2KFB5VuS" data-title="通過 Docker Compose 部署 Portainer" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -366,7 +424,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/13/docker2/" data-id="cuidgqIYxVnhWNnlDBLZYcT2P" data-title="通過 Docker Compose 部署 WordPress 和 MariaDB" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/13/docker2/" data-id="cuidwsX-DIg_APXcx0llv3ti1" data-title="通過 Docker Compose 部署 WordPress 和 MariaDB" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -409,7 +467,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/13/docker1/" data-id="cuidU-uS8UIiNVLmXevkmAW-v" data-title="通過 Docker Compose 設置 phpMyAdmin 和 MySQL" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/13/docker1/" data-id="cuidewHUt1bkhT4FYjBT3K2-M" data-title="通過 Docker Compose 設置 phpMyAdmin 和 MySQL" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -473,6 +531,10 @@
       <ul>
         
           <li>
+            <a href="/2025/10/20/raspberryPi1/">raspberryPi1</a>
+          </li>
+        
+          <li>
             <a href="/2025/10/14/dotNet1/">在 Raspberry Pi OS 中安裝 .NET SDK 或者 .NET Runtime</a>
           </li>
         
@@ -486,10 +548,6 @@
         
           <li>
             <a href="/2025/10/13/docker3/">通過 Docker Compose 部署 Portainer</a>
-          </li>
-        
-          <li>
-            <a href="/2025/10/13/docker2/">通過 Docker Compose 部署 WordPress 和 MariaDB</a>
           </li>
         
       </ul>
