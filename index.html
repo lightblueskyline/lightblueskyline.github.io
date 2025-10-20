@@ -71,6 +71,97 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-raspberryPi2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/10/20/raspberryPi2/" class="article-date">
+  <time class="dt-published" datetime="2025-10-20T02:21:29.000Z" itemprop="datePublished">2025-10-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Raspberry-Pi/">Raspberry Pi</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/10/20/raspberryPi2/">Raspberry Pi OS 64-bit 安裝 Docker Engine</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="參考文檔"><a href="#參考文檔" class="headerlink" title="參考文檔"></a><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/debian/">參考文檔</a></h2><ol>
+<li><p>卸載舊版本</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> pkg <span class="keyword">in</span> docker.io docker-doc docker-compose podman-docker containerd runc; <span class="keyword">do</span> <span class="built_in">sudo</span> apt-get remove <span class="variable">$pkg</span>; <span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用 apt 軟件倉庫安裝</p>
+<ol>
+<li><p>配置 Docker apt 軟件倉庫</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Add Docker&#x27;s official GPG key:</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get update</span><br><span class="line"><span class="built_in">sudo</span> apt-get install ca-certificates curl</span><br><span class="line"><span class="built_in">sudo</span> install -m 0755 -d /etc/apt/keyrings</span><br><span class="line"><span class="built_in">sudo</span> curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">chmod</span> a+r /etc/apt/keyrings/docker.asc</span><br><span class="line"></span><br><span class="line"><span class="comment"># Add the repository to Apt sources:</span></span><br><span class="line"><span class="built_in">echo</span> \</span><br><span class="line">  <span class="string">&quot;deb [arch=<span class="subst">$(dpkg --print-architecture)</span> signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \</span></span><br><span class="line"><span class="string">  <span class="subst">$(. /etc/os-release &amp;&amp; echo <span class="string">&quot;<span class="variable">$VERSION_CODENAME</span>&quot;</span>)</span> stable&quot;</span> | \</span><br><span class="line">  <span class="built_in">sudo</span> <span class="built_in">tee</span> /etc/apt/sources.list.d/docker.list &gt; /dev/null</span><br><span class="line"><span class="built_in">sudo</span> apt-get update</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安裝 Docker 軟件包</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安裝最新版本</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</span><br><span class="line"><span class="comment"># 注意在安裝過程完成之後 Docker 服務會自動啟動。驗證服務是否啓動：</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl status docker</span><br><span class="line"><span class="comment"># 如果沒有啓動，可以使用以下命令啓動：</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl start docker</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>驗證安裝是否成功</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> docker run hello-world</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新 Docker Engine 重複上方步驟 2 即可</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 2. 安裝 Docker 軟件包</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/linux-postinstall/">Docker Engine 的 Linux 安裝後步驟</a></p>
+<ol>
+<li><p>建立 Docker 群組(以非 root 使用者身分管理 Docker)</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> groupadd docker</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>將您的使用者加入 docker 群組</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> usermod -aG docker <span class="variable">$USER</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>請登出並重新登入，以便重新評估您的群組成員資格(您亦可執行以下指令以啟用群組的變更)</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">newgrp docker</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>使用 systemd 設定 Docker 於開機時自動啟動</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> docker.service</span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">enable</span> containerd.service</span><br><span class="line"><span class="comment"># 取消開機時自動啟動</span></span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">disable</span> docker.service</span><br><span class="line"><span class="built_in">sudo</span> systemctl <span class="built_in">disable</span> containerd.service</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>卸載 Docker Engine</p>
+<ol>
+<li><p>卸载 Docker Engine、CLI、containerd 和 Docker Compose 软件包</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get purge docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-ce-rootless-extras</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>主机上的镜像、容器、卷或自定义配置文件不会自动删除。手動要删除所有镜像、容器和卷</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">rm</span> -rf /var/lib/docker</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">rm</span> -rf /var/lib/containerd</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>移除源列表和密钥环</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">rm</span> /etc/apt/sources.list.d/docker.list</span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">rm</span> /etc/apt/keyrings/docker.asc</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/10/20/raspberryPi2/" data-id="cuidkOaSytwZAD3UH-IL2CHP-" data-title="Raspberry Pi OS 64-bit 安裝 Docker Engine" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-raspberryPi1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/10/20/raspberryPi1/" class="article-date">
@@ -117,7 +208,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/20/raspberryPi1/" data-id="cuid5M0_AXjpxEcmpNscM-F0l" data-title="Raspberry Pi OS 配置通過代理伺服器訪問網絡" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/20/raspberryPi1/" data-id="cuid_sYK4OY6kI-EKMLognWlV" data-title="Raspberry Pi OS 配置通過代理伺服器訪問網絡" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -169,7 +260,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/14/dotNet1/" data-id="cuidNj5ncvJ_r106vc7T5my_f" data-title="在 Raspberry Pi OS 中安裝 .NET SDK 或者 .NET Runtime" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/14/dotNet1/" data-id="cuidrXRF4lFOc-7-GYW8DQY81" data-title="在 Raspberry Pi OS 中安裝 .NET SDK 或者 .NET Runtime" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -269,7 +360,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/14/technique2/" data-id="cuidib8pa6ETFaLevaRRoQGL9" data-title="Windows11 共享 WiFi 網絡給路由器" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/14/technique2/" data-id="cuidO4Dxx7Qu_nl_TOhR9FTBg" data-title="Windows11 共享 WiFi 網絡給路由器" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -338,7 +429,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/14/technique1/" data-id="cuidh-PqppvNMUvSRM8ojnTze" data-title="油管下载脚本 yt-dlp (Windows11)" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/14/technique1/" data-id="cuiddCChm1Ve4Qjv_NCtMeG7D" data-title="油管下载脚本 yt-dlp (Windows11)" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -381,7 +472,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/13/docker3/" data-id="cuid_Bx5SRY9LkQ81ePkspqBo" data-title="通過 Docker Compose 部署 Portainer" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/13/docker3/" data-id="cuidVIbK43rfcKlq4iHTCCXCS" data-title="通過 Docker Compose 部署 Portainer" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -424,7 +515,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/13/docker2/" data-id="cuidalDdhRZpvsMP6XD43l3Nq" data-title="通過 Docker Compose 部署 WordPress 和 MariaDB" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/13/docker2/" data-id="cuidqksOXKDLseu78_-C-sd20" data-title="通過 Docker Compose 部署 WordPress 和 MariaDB" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -467,7 +558,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/13/docker1/" data-id="cuidJMsCUAll9_5uShRoSzMqJ" data-title="通過 Docker Compose 設置 phpMyAdmin 和 MySQL" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/13/docker1/" data-id="cuid0Ehp1ezujf6P9LzJA-ijv" data-title="通過 Docker Compose 設置 phpMyAdmin 和 MySQL" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -499,7 +590,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/NET/" rel="tag">.NET</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/NET/" rel="tag">.NET</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li></ul>
     </div>
   </div>
 
@@ -509,7 +600,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/NET/" style="font-size: 10px;">.NET</a>
+      <a href="/tags/NET/" style="font-size: 10px;">.NET</a> <a href="/tags/Docker/" style="font-size: 10px;">Docker</a>
     </div>
   </div>
 
@@ -531,6 +622,10 @@
       <ul>
         
           <li>
+            <a href="/2025/10/20/raspberryPi2/">Raspberry Pi OS 64-bit 安裝 Docker Engine</a>
+          </li>
+        
+          <li>
             <a href="/2025/10/20/raspberryPi1/">Raspberry Pi OS 配置通過代理伺服器訪問網絡</a>
           </li>
         
@@ -544,10 +639,6 @@
         
           <li>
             <a href="/2025/10/14/technique1/">油管下载脚本 yt-dlp (Windows11)</a>
-          </li>
-        
-          <li>
-            <a href="/2025/10/13/docker3/">通過 Docker Compose 部署 Portainer</a>
           </li>
         
       </ul>
