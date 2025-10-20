@@ -4,19 +4,19 @@
   <meta charset="utf-8">
   
   
-  <title>在 Raspberry Pi OS 中安裝 .NET SDK 或者 .NET Runtime | 瘦毛毛</title>
+  <title>Raspberry Pi OS 中配置 Docker 守護程序通過代理服務訪問網絡 | 瘦毛毛</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="通过安装脚本或解压二进制文件在 Linux 上安装 .NET 下載安裝脚本  1234# 使用 wgetwget https:&#x2F;&#x2F;dot.net&#x2F;v1&#x2F;dotnet-install.sh -O dotnet-install.sh# 或者使用 curlcurl -L https:&#x2F;&#x2F;dot.net&#x2F;v1&#x2F;dotnet-install.sh -o dotnet-install.sh  分配執行權限">
+  <meta name="description" content="參考文檔 建立 Docker 服務覆寫的目錄  1sudo mkdir -p &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;docker.service.d  在上方所創建的目錄中建立配置文件  1sudo nano &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;docker.service.d&#x2F;http-proxy.conf  在配置文件中添加以下環境變量  1234[Service]Environment">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在 Raspberry Pi OS 中安裝 .NET SDK 或者 .NET Runtime">
-<meta property="og:url" content="http://example.com/2025/10/14/dotNet1/index.html">
+<meta property="og:title" content="Raspberry Pi OS 中配置 Docker 守護程序通過代理服務訪問網絡">
+<meta property="og:url" content="http://example.com/2025/10/20/raspberryPi3/index.html">
 <meta property="og:site_name" content="瘦毛毛">
-<meta property="og:description" content="通过安装脚本或解压二进制文件在 Linux 上安装 .NET 下載安裝脚本  1234# 使用 wgetwget https:&#x2F;&#x2F;dot.net&#x2F;v1&#x2F;dotnet-install.sh -O dotnet-install.sh# 或者使用 curlcurl -L https:&#x2F;&#x2F;dot.net&#x2F;v1&#x2F;dotnet-install.sh -o dotnet-install.sh  分配執行權限">
+<meta property="og:description" content="參考文檔 建立 Docker 服務覆寫的目錄  1sudo mkdir -p &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;docker.service.d  在上方所創建的目錄中建立配置文件  1sudo nano &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;docker.service.d&#x2F;http-proxy.conf  在配置文件中添加以下環境變量  1234[Service]Environment">
 <meta property="og:locale">
-<meta property="article:published_time" content="2025-10-14T03:30:13.000Z">
-<meta property="article:modified_time" content="2025-10-14T04:10:53.537Z">
+<meta property="article:published_time" content="2025-10-20T03:09:01.000Z">
+<meta property="article:modified_time" content="2025-10-20T03:17:11.261Z">
 <meta property="article:author" content="M_0v0_M">
-<meta property="article:tag" content=".NET">
+<meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="瘦毛毛" type="application/atom+xml">
@@ -74,10 +74,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-dotNet1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-raspberryPi3" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2025/10/14/dotNet1/" class="article-date">
-  <time class="dt-published" datetime="2025-10-14T03:30:13.000Z" itemprop="datePublished">2025-10-14</time>
+    <a href="/2025/10/20/raspberryPi3/" class="article-date">
+  <time class="dt-published" datetime="2025-10-20T03:09:01.000Z" itemprop="datePublished">2025-10-20</time>
 </a>
     
   <div class="article-category">
@@ -92,7 +92,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      在 Raspberry Pi OS 中安裝 .NET SDK 或者 .NET Runtime
+      Raspberry Pi OS 中配置 Docker 守護程序通過代理服務訪問網絡
     </h1>
   
 
@@ -100,25 +100,28 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="通过安装脚本或解压二进制文件在-Linux-上安装-NET"><a href="#通过安装脚本或解压二进制文件在-Linux-上安装-NET" class="headerlink" title="通过安装脚本或解压二进制文件在 Linux 上安装 .NET"></a><a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/dotnet/core/install/linux-scripted-manual">通过安装脚本或解压二进制文件在 Linux 上安装 .NET</a></h2><ol>
-<li><p>下載安裝脚本</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用 wget</span></span><br><span class="line">wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh</span><br><span class="line"><span class="comment"># 或者使用 curl</span></span><br><span class="line">curl -L https://dot.net/v1/dotnet-install.sh -o dotnet-install.sh</span><br></pre></td></tr></table></figure>
+        <h2 id="參考文檔"><a href="#參考文檔" class="headerlink" title="參考文檔"></a><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/daemon/proxy/">參考文檔</a></h2><ol>
+<li><p>建立 Docker 服務覆寫的目錄</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">mkdir</span> -p /etc/systemd/system/docker.service.d</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>分配執行權限</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x ./dotnet-install.sh</span><br></pre></td></tr></table></figure>
+<li><p>在上方所創建的目錄中建立配置文件</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> nano /etc/systemd/system/docker.service.d/http-proxy.conf</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>使用脚本安裝 .NET SDK 或 .NET Runtime</p>
- <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 該脚本默認安裝最新的 LTS 版本</span></span><br><span class="line"><span class="comment"># 若安裝最新的發佈版本 (可能非 LTS)</span></span><br><span class="line">./dotnet-install.sh --version latest</span><br><span class="line"><span class="comment"># 指定只安裝運行時</span></span><br><span class="line">./dotnet-install.sh --version latest --runtime aspnetcore</span><br><span class="line"><span class="comment"># 您可以使用 --channel 参数指定特定主版本号来安装该版本。</span></span><br><span class="line">./dotnet-install.sh --channel 9.0</span><br></pre></td></tr></table></figure></li>
+<li><p>在配置文件中添加以下環境變量</p>
+ <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[Service]</span></span><br><span class="line"><span class="attr">Environment</span>=<span class="string">&quot;HTTP_PROXY=http://127.0.0.1:7897&quot;</span></span><br><span class="line"><span class="attr">Environment</span>=<span class="string">&quot;HTTPS_PROXY=http://127.0.0.1:7897&quot;</span></span><br><span class="line"><span class="attr">Environment</span>=<span class="string">&quot;NO_PROXY=localhost,127.0.0.1,::1,192.168.0.0/16,10.0.0.0/8,172.16.0.0/12&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重新加載 systemd 配置並重啟 Docker 服務</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> systemctl daemon-reload</span><br><span class="line"><span class="built_in">sudo</span> systemctl restart docker</span><br></pre></td></tr></table></figure></li>
 </ol>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/14/dotNet1/" data-id="cuidMqEiDsnl9rP_RlLo-3zfj" data-title="在 Raspberry Pi OS 中安裝 .NET SDK 或者 .NET Runtime" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/20/raspberryPi3/" data-id="cuidk0FFU9ycmGRMtQSu_J47g" data-title="Raspberry Pi OS 中配置 Docker 守護程序通過代理服務訪問網絡" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NET/" rel="tag">.NET</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li></ul>
 
     </footer>
   </div>
@@ -126,19 +129,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2025/10/20/raspberryPi1/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2025/10/20/raspberryPi4/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Neuer</strong>
       <div class="article-nav-title">
         
-          Raspberry Pi OS 配置通過代理伺服器訪問網絡
+          Raspberry Pi OS 64-bit 桌面版安裝 Clash Verge Rev
         
       </div>
     </a>
   
   
-    <a href="/2025/10/14/technique2/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2025/10/20/raspberryPi2/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Älter</strong>
-      <div class="article-nav-title">Windows11 共享 WiFi 網絡給路由器</div>
+      <div class="article-nav-title">Raspberry Pi OS 64-bit 安裝 Docker Engine</div>
     </a>
   
 </nav>
