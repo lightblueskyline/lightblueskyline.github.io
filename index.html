@@ -71,6 +71,51 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-docker4" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/01/14/docker4/" class="article-date">
+  <time class="dt-published" datetime="2026-01-14T07:15:15.000Z" itemprop="datePublished">2026-01-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Docker/">Docker</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/01/14/docker4/">使用 Docker 部署 ezbookkeeping</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 創建持久化數據卷</span></span><br><span class="line">docker volume create ezbookkeeping-data</span><br><span class="line">docker volume create ezbookkeeping-storage</span><br><span class="line"><span class="comment"># 使用持久化數據卷運行容器</span></span><br><span class="line">docker run -d \</span><br><span class="line">  --name ezbookkeeping \</span><br><span class="line">  -p 58081:8080 \</span><br><span class="line">  -v ezbookkeeping-data:/ezbookkeeping/data \</span><br><span class="line">  -v ezbookkeeping-storage:/ezbookkeeping/storage \</span><br><span class="line">  mayswind/ezbookkeeping:latest</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/01/14/docker4/" data-id="cuid6UtrW5vdoh6dm9rDDiy2O" data-title="使用 Docker 部署 ezbookkeeping" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-raspberryPi4" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/10/20/raspberryPi4/" class="article-date">
@@ -108,7 +153,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/20/raspberryPi4/" data-id="cuidrKCTa1vIhsJxj08o6hmlA" data-title="Raspberry Pi OS 64-bit 桌面版安裝 Clash Verge Rev" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/20/raspberryPi4/" data-id="cuiduP3AVjvuYjaT_bcRYVnJk" data-title="Raspberry Pi OS 64-bit 桌面版安裝 Clash Verge Rev" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -165,7 +210,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/20/raspberryPi3/" data-id="cuidk0FFU9ycmGRMtQSu_J47g" data-title="Raspberry Pi OS 中配置 Docker 守護程序通過代理服務訪問網絡" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/20/raspberryPi3/" data-id="cuidnwRe7V9Fqs-B4CJB73D7Z" data-title="Raspberry Pi OS 中配置 Docker 守護程序通過代理服務訪問網絡" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -256,7 +301,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/20/raspberryPi2/" data-id="cuidhdx9FbzdK98bwLDP7ZPy3" data-title="Raspberry Pi OS 64-bit 安裝 Docker Engine" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/20/raspberryPi2/" data-id="cuidjXqOofY7EVsPLfdqPeRtC" data-title="Raspberry Pi OS 64-bit 安裝 Docker Engine" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -316,7 +361,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/20/raspberryPi1/" data-id="cuid9QRQH_jZCU0uisVQ2q-Jq" data-title="Raspberry Pi OS 配置通過代理伺服器訪問網絡" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/20/raspberryPi1/" data-id="cuidayUJMYaOEwP-Jl5pDEt7l" data-title="Raspberry Pi OS 配置通過代理伺服器訪問網絡" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -368,7 +413,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/14/dotNet1/" data-id="cuidMqEiDsnl9rP_RlLo-3zfj" data-title="在 Raspberry Pi OS 中安裝 .NET SDK 或者 .NET Runtime" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/14/dotNet1/" data-id="cuid0TfaOxyYHYcJvUCVbL07M" data-title="在 Raspberry Pi OS 中安裝 .NET SDK 或者 .NET Runtime" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -468,7 +513,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/14/technique2/" data-id="cuidxzLHv9JuDS-AOxF-b6PcL" data-title="Windows11 共享 WiFi 網絡給路由器" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/14/technique2/" data-id="cuidHX-OI1s64IXzUsSrvkIb4" data-title="Windows11 共享 WiFi 網絡給路由器" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -537,7 +582,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/14/technique1/" data-id="cuidekbufqusJXPmzYV1ZMO13" data-title="油管下载脚本 yt-dlp (Windows11)" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/14/technique1/" data-id="cuidBdunESnh_2yd9HrdkRBH2" data-title="油管下载脚本 yt-dlp (Windows11)" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -580,10 +625,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/13/docker3/" data-id="cuidQGSq-jX390OOXgabgym5C" data-title="通過 Docker Compose 部署 Portainer" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/13/docker3/" data-id="cuidVnBXj5940D3N1KxHNrQvS" data-title="通過 Docker Compose 部署 Portainer" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li></ul>
+
     </footer>
   </div>
   
@@ -623,53 +670,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/13/docker2/" data-id="cuiduopXz7h-oDuWVmttbO8TT" data-title="通過 Docker Compose 部署 WordPress 和 MariaDB" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/13/docker2/" data-id="cuidzgl8gQViym_RAWJR8dyVM" data-title="通過 Docker Compose 部署 WordPress 和 MariaDB" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
-    </footer>
-  </div>
-  
-</article>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li></ul>
 
-
-
-  
-    <article id="post-docker1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/10/13/docker1/" class="article-date">
-  <time class="dt-published" datetime="2025-10-13T08:57:01.000Z" itemprop="datePublished">2025-10-13</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Docker/">Docker</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/10/13/docker1/">通過 Docker Compose 設置 phpMyAdmin 和 MySQL</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">mysql:</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">mysql_container</span> <span class="comment"># 容器名稱</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">mysql:latest</span> <span class="comment"># 鏡像版本</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span> <span class="comment"># 自動重啓</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">MYSQL_DATABASE:</span> <span class="string">first_db</span> <span class="comment"># 數據庫名稱</span></span><br><span class="line">      <span class="attr">MYSQL_ROOT_PASSWORD:</span>  <span class="comment"># root 賬戶密碼</span></span><br><span class="line">      <span class="attr">MYSQL_USER:</span> <span class="string">dbuser</span> <span class="comment"># 賬戶名稱</span></span><br><span class="line">      <span class="attr">MYSQL_PASSWORD:</span>  <span class="comment"># dbuser 賬戶密碼</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/home/light/mysql_data:/var/lib/mysql</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;53306:3306&quot;</span> <span class="comment"># 主機端口:容器端口</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">phpmyadmin:</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">phpmyadmin_container</span> <span class="comment"># 容器名稱</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">phpmyadmin:latest</span> <span class="comment"># 鏡像版本</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span> <span class="comment"># 自動重啓</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">PMA_ARBITRARY:</span> <span class="number">1</span></span><br><span class="line">      <span class="attr">PMA_HOST:</span> <span class="string">mysql</span></span><br><span class="line">      <span class="attr">PMA_PORT:</span> <span class="number">3306</span></span><br><span class="line">      <span class="attr">MYSQL_ROOT_PASSWORD:</span>  <span class="comment"># MySQL root 賬戶密碼</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">mysql</span> <span class="comment"># 確保 phpMyAdmin 在 MySQL 容器之後啓動</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;58080:80&quot;</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/13/docker1/" data-id="cuidToGALVkKn4xgJ4W--m4kz" data-title="通過 Docker Compose 設置 phpMyAdmin 和 MySQL" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
     </footer>
   </div>
   
@@ -679,6 +685,11 @@
 
   
 
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">weiter &raquo;</a>
+  </nav>
 
 </section>
         
@@ -717,7 +728,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archiv</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">January 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a></li></ul>
     </div>
   </div>
 
@@ -728,6 +739,10 @@
     <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2026/01/14/docker4/">使用 Docker 部署 ezbookkeeping</a>
+          </li>
         
           <li>
             <a href="/2025/10/20/raspberryPi4/">Raspberry Pi OS 64-bit 桌面版安裝 Clash Verge Rev</a>
@@ -745,10 +760,6 @@
             <a href="/2025/10/20/raspberryPi1/">Raspberry Pi OS 配置通過代理伺服器訪問網絡</a>
           </li>
         
-          <li>
-            <a href="/2025/10/14/dotNet1/">在 Raspberry Pi OS 中安裝 .NET SDK 或者 .NET Runtime</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -762,7 +773,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       
-      &copy; 2025 M_0v0_M<br>
+      &copy; 2026 M_0v0_M<br>
       Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
