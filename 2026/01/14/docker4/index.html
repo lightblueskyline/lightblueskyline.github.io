@@ -6,15 +6,15 @@
   
   <title>使用 Docker 部署 ezbookkeeping | 瘦毛毛</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="12345678910# 創建持久化數據卷docker volume create ezbookkeeping-datadocker volume create ezbookkeeping-storage# 使用持久化數據卷運行容器docker run -d \  --name ezbookkeeping \  -p 58081:8080 \  -v ezbookkeeping-data:&#x2F;ezb">
+  <meta name="description" content="123456789101112131415161718# 創建持久化數據卷docker volume create ezbookkeeping-datadocker volume create ezbookkeeping-storage# 使用持久化數據卷運行容器docker run -d \  --name ezbookkeeping \  -p 58081:8080 \  -v ezbookk">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用 Docker 部署 ezbookkeeping">
 <meta property="og:url" content="http://example.com/2026/01/14/docker4/index.html">
 <meta property="og:site_name" content="瘦毛毛">
-<meta property="og:description" content="12345678910# 創建持久化數據卷docker volume create ezbookkeeping-datadocker volume create ezbookkeeping-storage# 使用持久化數據卷運行容器docker run -d \  --name ezbookkeeping \  -p 58081:8080 \  -v ezbookkeeping-data:&#x2F;ezb">
+<meta property="og:description" content="123456789101112131415161718# 創建持久化數據卷docker volume create ezbookkeeping-datadocker volume create ezbookkeeping-storage# 使用持久化數據卷運行容器docker run -d \  --name ezbookkeeping \  -p 58081:8080 \  -v ezbookk">
 <meta property="og:locale">
 <meta property="article:published_time" content="2026-01-14T07:15:15.000Z">
-<meta property="article:modified_time" content="2026-01-14T07:25:53.668Z">
+<meta property="article:modified_time" content="2026-01-16T08:35:25.448Z">
 <meta property="article:author" content="M_0v0_M">
 <meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary">
@@ -100,12 +100,12 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 創建持久化數據卷</span></span><br><span class="line">docker volume create ezbookkeeping-data</span><br><span class="line">docker volume create ezbookkeeping-storage</span><br><span class="line"><span class="comment"># 使用持久化數據卷運行容器</span></span><br><span class="line">docker run -d \</span><br><span class="line">  --name ezbookkeeping \</span><br><span class="line">  -p 58081:8080 \</span><br><span class="line">  -v ezbookkeeping-data:/ezbookkeeping/data \</span><br><span class="line">  -v ezbookkeeping-storage:/ezbookkeeping/storage \</span><br><span class="line">  mayswind/ezbookkeeping:latest</span><br></pre></td></tr></table></figure>
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 創建持久化數據卷</span></span><br><span class="line">docker volume create ezbookkeeping-data</span><br><span class="line">docker volume create ezbookkeeping-storage</span><br><span class="line"><span class="comment"># 使用持久化數據卷運行容器</span></span><br><span class="line">docker run -d \</span><br><span class="line">  --name ezbookkeeping \</span><br><span class="line">  -p 58081:8080 \</span><br><span class="line">  -v ezbookkeeping-data:/ezbookkeeping/data \</span><br><span class="line">  -v ezbookkeeping-storage:/ezbookkeeping/storage \</span><br><span class="line">  mayswind/ezbookkeeping:latest</span><br><span class="line"><span class="comment"># 停止並刪除容器</span></span><br><span class="line">docker ps --all</span><br><span class="line">docker container stop effc88d64a8a</span><br><span class="line">docker container <span class="built_in">rm</span> --volumes effc88d64a8a</span><br><span class="line"><span class="comment"># 刪除持久化數據卷</span></span><br><span class="line">docker volume <span class="built_in">ls</span></span><br><span class="line">docker volume <span class="built_in">rm</span> ezbookkeeping-data</span><br><span class="line">docker volume <span class="built_in">rm</span> ezbookkeeping-storage</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/01/14/docker4/" data-id="cuid6UtrW5vdoh6dm9rDDiy2O" data-title="使用 Docker 部署 ezbookkeeping" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2026/01/14/docker4/" data-id="cuidzNTo98t4ay4HeWfoS0D_q" data-title="使用 Docker 部署 ezbookkeeping" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -116,6 +116,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2026/01/16/docker5/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Neuer</strong>
+      <div class="article-nav-title">
+        
+          通過 Docker Compose 設置 ezbookkeeping 和 MariaDB
+        
+      </div>
+    </a>
   
   
     <a href="/2025/10/20/raspberryPi4/" id="article-nav-older" class="article-nav-link-wrap">
@@ -179,6 +188,10 @@
       <ul>
         
           <li>
+            <a href="/2026/01/16/docker5/">通過 Docker Compose 設置 ezbookkeeping 和 MariaDB</a>
+          </li>
+        
+          <li>
             <a href="/2026/01/14/docker4/">使用 Docker 部署 ezbookkeeping</a>
           </li>
         
@@ -192,10 +205,6 @@
         
           <li>
             <a href="/2025/10/20/raspberryPi2/">Raspberry Pi OS 64-bit 安裝 Docker Engine</a>
-          </li>
-        
-          <li>
-            <a href="/2025/10/20/raspberryPi1/">Raspberry Pi OS 配置通過代理伺服器訪問網絡</a>
           </li>
         
       </ul>

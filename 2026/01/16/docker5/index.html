@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>通過 Docker Compose 設置 ezbookkeeping 和 MariaDB | 瘦毛毛</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546# https:&#x2F;&#x2F;ezbookkeeping.mayswind.net&#x2F;installation&#x2F;installation-docker# 務必注意縮進層級services:  mariadb:    container_name:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="通過 Docker Compose 設置 ezbookkeeping 和 MariaDB">
+<meta property="og:url" content="http://example.com/2026/01/16/docker5/index.html">
+<meta property="og:site_name" content="瘦毛毛">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546# https:&#x2F;&#x2F;ezbookkeeping.mayswind.net&#x2F;installation&#x2F;installation-docker# 務必注意縮進層級services:  mariadb:    container_name:">
+<meta property="og:locale">
+<meta property="article:published_time" content="2026-01-16T08:16:16.000Z">
+<meta property="article:modified_time" content="2026-01-21T02:44:38.093Z">
+<meta property="article:author" content="M_0v0_M">
+<meta property="article:tag" content="Docker">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="瘦毛毛" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">瘦毛毛</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-docker5" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/01/16/docker5/" class="article-date">
+  <time class="dt-published" datetime="2026-01-16T08:16:16.000Z" itemprop="datePublished">2026-01-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Docker/">Docker</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      通過 Docker Compose 設置 ezbookkeeping 和 MariaDB
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># https://ezbookkeeping.mayswind.net/installation/installation-docker</span></span><br><span class="line"><span class="comment"># 務必注意縮進層級</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">mariadb:</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">mariadb_container</span> <span class="comment"># 容器名稱</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">mariadb:latest</span> <span class="comment"># 鏡像版本</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span> <span class="comment"># 自動重啓</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;MYSQL_DATABASE=ezbookkeeping&quot;</span> <span class="comment"># 數據庫名稱</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;MYSQL_USER=ezbookkeeping&quot;</span> <span class="comment"># 賬戶名稱</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;MYSQL_PASSWORD=&quot;</span> <span class="comment"># dbuser 賬戶密碼</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;MYSQL_ROOT_PASSWORD=&quot;</span> <span class="comment"># root 賬戶密碼；若使用已存在的數據庫，請忽略配置此參數</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;53307:3306&quot;</span> <span class="comment"># 主機端口:容器端口</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;mariadb_data:/var/lib/mysql&quot;</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;mariadb_network&quot;</span> <span class="comment"># 使用自定義網絡</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">ezbookkeeping:</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">ezbookkeeping_container</span> <span class="comment"># 容器名稱</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">mayswind/ezbookkeeping:latest</span> <span class="comment"># 鏡像版本</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">on-failure</span> <span class="comment"># 容器因出錯退出之後重啓</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;mariadb_network&quot;</span> <span class="comment"># 使用自定義網絡(若使用 MariaDB 務必配置此項目)</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;EBK_DATABASE_TYPE=mysql&quot;</span> <span class="comment"># 數據庫類型</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;EBK_DATABASE_HOST=mariadb:3306&quot;</span> <span class="comment"># 數據庫主機和端口</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;EBK_DATABASE_NAME=ezbookkeeping&quot;</span> <span class="comment"># 數據庫名稱</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;EBK_DATABASE_USER=ezbookkeeping&quot;</span> <span class="comment"># 數據庫用戶名</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;EBK_DATABASE_PASSWD=&quot;</span> <span class="comment"># 數據庫用戶密碼</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;EBK_LOG_MODE=file&quot;</span> <span class="comment"># 日誌模式</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;EBK_SECURITY_SECRET_KEY=dea49e87bdf151db47b6e6e2de5758a5&quot;</span> <span class="comment"># 安全密鑰，請自行更改</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;EBK_SECURITY_ENABLE_API_TOKEN=true&quot;</span> <span class="comment"># 啓用 API Token 功能</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;EBK_TIP_ENABLE_TIPS_IN_LOGIN_PAGE=true&quot;</span> <span class="comment"># 啓用在登入頁面顯示自定義提示功能</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/home/rp4b/ezbookkeeping/storage:/ezbookkeeping/storage</span> <span class="comment"># make sure the UID:GID is 1000:1000</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/home/rp4b/ezbookkeeping/data:/ezbookkeeping/data</span> <span class="comment"># make sure the UID:GID is 1000:1000</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;mariadb&quot;</span> <span class="comment"># 確保 ezbookkeeping 在 MariaDB 容器之後啓動</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;58081:8080&quot;</span> <span class="comment"># 主機端口:容器端口</span></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line">  <span class="attr">mariadb_data:</span> <span class="comment"># 定義持久化數據卷</span></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line">  <span class="attr">mariadb_network:</span> <span class="comment"># 定義自定義網絡</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 挂載宿主機路徑運行容器</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /home/rp4b/ezbookkeeping/data</span><br><span class="line"><span class="built_in">mkdir</span> -p /home/rp4b/ezbookkeeping/storage</span><br><span class="line"><span class="built_in">chown</span> 1000:1000 /home/rp4b/ezbookkeeping/data</span><br><span class="line"><span class="built_in">chown</span> 1000:1000 /home/rp4b/ezbookkeeping/storage</span><br><span class="line"><span class="comment"># 啓動</span></span><br><span class="line">docker compose up --detach</span><br><span class="line">docker compose -f mariadb_ezbookkeeping.yaml up --detach</span><br><span class="line"><span class="comment"># 停止刪除，容器、網絡</span></span><br><span class="line">docker compose -f mariadb_ezbookkeeping.yaml down --rmi all --volumes</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/01/16/docker5/" data-id="cuidgk5CM60IUN_fJygxyCIZ8" data-title="通過 Docker Compose 設置 ezbookkeeping 和 MariaDB" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2026/01/14/docker4/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">使用 Docker 部署 ezbookkeeping</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Kategorien</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Raspberry-Pi/">Raspberry Pi</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Technique/">Technique</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/NET/" rel="tag">.NET</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Technique/" rel="tag">Technique</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/NET/" style="font-size: 10px;">.NET</a> <a href="/tags/Docker/" style="font-size: 20px;">Docker</a> <a href="/tags/Technique/" style="font-size: 10px;">Technique</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/01/">January 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/10/">October 2025</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/01/16/docker5/">通過 Docker Compose 設置 ezbookkeeping 和 MariaDB</a>
+          </li>
+        
+          <li>
+            <a href="/2026/01/14/docker4/">使用 Docker 部署 ezbookkeeping</a>
+          </li>
+        
+          <li>
+            <a href="/2025/10/20/raspberryPi4/">Raspberry Pi OS 64-bit 桌面版安裝 Clash Verge Rev</a>
+          </li>
+        
+          <li>
+            <a href="/2025/10/20/raspberryPi3/">Raspberry Pi OS 中配置 Docker 守護程序通過代理服務訪問網絡</a>
+          </li>
+        
+          <li>
+            <a href="/2025/10/20/raspberryPi2/">Raspberry Pi OS 64-bit 安裝 Docker Engine</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2026 M_0v0_M<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

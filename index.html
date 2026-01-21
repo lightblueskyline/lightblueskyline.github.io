@@ -71,6 +71,53 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-docker5" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2026/01/16/docker5/" class="article-date">
+  <time class="dt-published" datetime="2026-01-16T08:16:16.000Z" itemprop="datePublished">2026-01-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Docker/">Docker</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2026/01/16/docker5/">通過 Docker Compose 設置 ezbookkeeping 和 MariaDB</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># https://ezbookkeeping.mayswind.net/installation/installation-docker</span></span><br><span class="line"><span class="comment"># 務必注意縮進層級</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">mariadb:</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">mariadb_container</span> <span class="comment"># 容器名稱</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">mariadb:latest</span> <span class="comment"># 鏡像版本</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span> <span class="comment"># 自動重啓</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;MYSQL_DATABASE=ezbookkeeping&quot;</span> <span class="comment"># 數據庫名稱</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;MYSQL_USER=ezbookkeeping&quot;</span> <span class="comment"># 賬戶名稱</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;MYSQL_PASSWORD=&quot;</span> <span class="comment"># dbuser 賬戶密碼</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;MYSQL_ROOT_PASSWORD=&quot;</span> <span class="comment"># root 賬戶密碼；若使用已存在的數據庫，請忽略配置此參數</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;53307:3306&quot;</span> <span class="comment"># 主機端口:容器端口</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;mariadb_data:/var/lib/mysql&quot;</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;mariadb_network&quot;</span> <span class="comment"># 使用自定義網絡</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">ezbookkeeping:</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">ezbookkeeping_container</span> <span class="comment"># 容器名稱</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">mayswind/ezbookkeeping:latest</span> <span class="comment"># 鏡像版本</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">on-failure</span> <span class="comment"># 容器因出錯退出之後重啓</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;mariadb_network&quot;</span> <span class="comment"># 使用自定義網絡(若使用 MariaDB 務必配置此項目)</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;EBK_DATABASE_TYPE=mysql&quot;</span> <span class="comment"># 數據庫類型</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;EBK_DATABASE_HOST=mariadb:3306&quot;</span> <span class="comment"># 數據庫主機和端口</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;EBK_DATABASE_NAME=ezbookkeeping&quot;</span> <span class="comment"># 數據庫名稱</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;EBK_DATABASE_USER=ezbookkeeping&quot;</span> <span class="comment"># 數據庫用戶名</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;EBK_DATABASE_PASSWD=&quot;</span> <span class="comment"># 數據庫用戶密碼</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;EBK_LOG_MODE=file&quot;</span> <span class="comment"># 日誌模式</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;EBK_SECURITY_SECRET_KEY=dea49e87bdf151db47b6e6e2de5758a5&quot;</span> <span class="comment"># 安全密鑰，請自行更改</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;EBK_SECURITY_ENABLE_API_TOKEN=true&quot;</span> <span class="comment"># 啓用 API Token 功能</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;EBK_TIP_ENABLE_TIPS_IN_LOGIN_PAGE=true&quot;</span> <span class="comment"># 啓用在登入頁面顯示自定義提示功能</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/home/rp4b/ezbookkeeping/storage:/ezbookkeeping/storage</span> <span class="comment"># make sure the UID:GID is 1000:1000</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/home/rp4b/ezbookkeeping/data:/ezbookkeeping/data</span> <span class="comment"># make sure the UID:GID is 1000:1000</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;mariadb&quot;</span> <span class="comment"># 確保 ezbookkeeping 在 MariaDB 容器之後啓動</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;58081:8080&quot;</span> <span class="comment"># 主機端口:容器端口</span></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line">  <span class="attr">mariadb_data:</span> <span class="comment"># 定義持久化數據卷</span></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line">  <span class="attr">mariadb_network:</span> <span class="comment"># 定義自定義網絡</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 挂載宿主機路徑運行容器</span></span><br><span class="line"><span class="built_in">mkdir</span> -p /home/rp4b/ezbookkeeping/data</span><br><span class="line"><span class="built_in">mkdir</span> -p /home/rp4b/ezbookkeeping/storage</span><br><span class="line"><span class="built_in">chown</span> 1000:1000 /home/rp4b/ezbookkeeping/data</span><br><span class="line"><span class="built_in">chown</span> 1000:1000 /home/rp4b/ezbookkeeping/storage</span><br><span class="line"><span class="comment"># 啓動</span></span><br><span class="line">docker compose up --detach</span><br><span class="line">docker compose -f mariadb_ezbookkeeping.yaml up --detach</span><br><span class="line"><span class="comment"># 停止刪除，容器、網絡</span></span><br><span class="line">docker compose -f mariadb_ezbookkeeping.yaml down --rmi all --volumes</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/01/16/docker5/" data-id="cuidgk5CM60IUN_fJygxyCIZ8" data-title="通過 Docker Compose 設置 ezbookkeeping 和 MariaDB" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-docker4" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2026/01/14/docker4/" class="article-date">
@@ -97,12 +144,12 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 創建持久化數據卷</span></span><br><span class="line">docker volume create ezbookkeeping-data</span><br><span class="line">docker volume create ezbookkeeping-storage</span><br><span class="line"><span class="comment"># 使用持久化數據卷運行容器</span></span><br><span class="line">docker run -d \</span><br><span class="line">  --name ezbookkeeping \</span><br><span class="line">  -p 58081:8080 \</span><br><span class="line">  -v ezbookkeeping-data:/ezbookkeeping/data \</span><br><span class="line">  -v ezbookkeeping-storage:/ezbookkeeping/storage \</span><br><span class="line">  mayswind/ezbookkeeping:latest</span><br></pre></td></tr></table></figure>
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 創建持久化數據卷</span></span><br><span class="line">docker volume create ezbookkeeping-data</span><br><span class="line">docker volume create ezbookkeeping-storage</span><br><span class="line"><span class="comment"># 使用持久化數據卷運行容器</span></span><br><span class="line">docker run -d \</span><br><span class="line">  --name ezbookkeeping \</span><br><span class="line">  -p 58081:8080 \</span><br><span class="line">  -v ezbookkeeping-data:/ezbookkeeping/data \</span><br><span class="line">  -v ezbookkeeping-storage:/ezbookkeeping/storage \</span><br><span class="line">  mayswind/ezbookkeeping:latest</span><br><span class="line"><span class="comment"># 停止並刪除容器</span></span><br><span class="line">docker ps --all</span><br><span class="line">docker container stop effc88d64a8a</span><br><span class="line">docker container <span class="built_in">rm</span> --volumes effc88d64a8a</span><br><span class="line"><span class="comment"># 刪除持久化數據卷</span></span><br><span class="line">docker volume <span class="built_in">ls</span></span><br><span class="line">docker volume <span class="built_in">rm</span> ezbookkeeping-data</span><br><span class="line">docker volume <span class="built_in">rm</span> ezbookkeeping-storage</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2026/01/14/docker4/" data-id="cuid6UtrW5vdoh6dm9rDDiy2O" data-title="使用 Docker 部署 ezbookkeeping" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2026/01/14/docker4/" data-id="cuidzNTo98t4ay4HeWfoS0D_q" data-title="使用 Docker 部署 ezbookkeeping" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -153,7 +200,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/20/raspberryPi4/" data-id="cuiduP3AVjvuYjaT_bcRYVnJk" data-title="Raspberry Pi OS 64-bit 桌面版安裝 Clash Verge Rev" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/20/raspberryPi4/" data-id="cuid7NLGd01dngqxf5o4GEE46" data-title="Raspberry Pi OS 64-bit 桌面版安裝 Clash Verge Rev" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -210,7 +257,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/20/raspberryPi3/" data-id="cuidnwRe7V9Fqs-B4CJB73D7Z" data-title="Raspberry Pi OS 中配置 Docker 守護程序通過代理服務訪問網絡" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/20/raspberryPi3/" data-id="cuidTj1yVMwNZohkXP37-5FOz" data-title="Raspberry Pi OS 中配置 Docker 守護程序通過代理服務訪問網絡" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -301,7 +348,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/20/raspberryPi2/" data-id="cuidjXqOofY7EVsPLfdqPeRtC" data-title="Raspberry Pi OS 64-bit 安裝 Docker Engine" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/20/raspberryPi2/" data-id="cuidWF0ljh4vRBT0fRH1EWrTY" data-title="Raspberry Pi OS 64-bit 安裝 Docker Engine" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -361,7 +408,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/20/raspberryPi1/" data-id="cuidayUJMYaOEwP-Jl5pDEt7l" data-title="Raspberry Pi OS 配置通過代理伺服器訪問網絡" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/20/raspberryPi1/" data-id="cuidTAPkmQqOB5WskQ3o_tkX_" data-title="Raspberry Pi OS 配置通過代理伺服器訪問網絡" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -413,7 +460,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/14/dotNet1/" data-id="cuid0TfaOxyYHYcJvUCVbL07M" data-title="在 Raspberry Pi OS 中安裝 .NET SDK 或者 .NET Runtime" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/14/dotNet1/" data-id="cuidev0Gaea-nxGvOHfsa2VpH" data-title="在 Raspberry Pi OS 中安裝 .NET SDK 或者 .NET Runtime" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -513,7 +560,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/14/technique2/" data-id="cuidHX-OI1s64IXzUsSrvkIb4" data-title="Windows11 共享 WiFi 網絡給路由器" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/14/technique2/" data-id="cuidMU4mC4PMFVWPI5DHyqHDJ" data-title="Windows11 共享 WiFi 網絡給路由器" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -582,7 +629,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/14/technique1/" data-id="cuidBdunESnh_2yd9HrdkRBH2" data-title="油管下载脚本 yt-dlp (Windows11)" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/14/technique1/" data-id="cuidJIBa1nvgtNKvDfoeuggZg" data-title="油管下载脚本 yt-dlp (Windows11)" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -625,52 +672,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/13/docker3/" data-id="cuidVnBXj5940D3N1KxHNrQvS" data-title="通過 Docker Compose 部署 Portainer" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-docker2" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/10/13/docker2/" class="article-date">
-  <time class="dt-published" datetime="2025-10-13T09:02:37.000Z" itemprop="datePublished">2025-10-13</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Docker/">Docker</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/10/13/docker2/">通過 Docker Compose 部署 WordPress 和 MariaDB</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># docker compose --file wordpress-mariadb-compose.yaml pull portainer / 只拉取文件中定義的鏡像</span></span><br><span class="line"><span class="comment"># docker compose --file wordpress-mariadb-compose.yaml up --detach</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">mariadb:</span> <span class="comment"># Service name for MariaDB</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">mariadb_container</span> <span class="comment"># 容器名稱</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">mariadb:latest</span> <span class="comment"># Use a specific MariaDB image version</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span> <span class="comment"># Ensure the service restarts if it stops (容器異常退出時自動重啓)</span></span><br><span class="line">    <span class="attr">environment:</span> <span class="comment"># Environment variables for MariaDB configuration</span></span><br><span class="line">      <span class="attr">MYSQL_ROOT_PASSWORD:</span> <span class="string">your_root_password</span> <span class="comment"># Set a strong root password</span></span><br><span class="line">      <span class="attr">MYSQL_DATABASE:</span> <span class="string">wordpress_db</span> <span class="comment"># Name of the WordPress database</span></span><br><span class="line">      <span class="attr">MYSQL_USER:</span> <span class="string">wordpress_user</span> <span class="comment"># Username for WordPress</span></span><br><span class="line">      <span class="attr">MYSQL_PASSWORD:</span> <span class="string">your_wordpress_password</span> <span class="comment"># Password for the WordPress user</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;53307:3306&quot;</span> <span class="comment"># 主機端口:容器端口</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">mariadb_data:/var/lib/mysql</span> <span class="comment"># Persist database data in a named volume</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">wordpress:</span> <span class="comment"># Service name for WordPress</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">wordpress_container</span> <span class="comment"># 容器名稱</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">wordpress:latest</span> <span class="comment"># Use the latest WordPress image</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span> <span class="comment"># (容器異常退出時自動重啓)</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;58081:80&quot;</span> <span class="comment"># Map host port 58081 to container port 80</span></span><br><span class="line">    <span class="attr">environment:</span> <span class="comment"># Environment variables for WordPress configuration</span></span><br><span class="line">      <span class="attr">WORDPRESS_DB_HOST:</span> <span class="string">mariadb:3306</span> <span class="comment"># Hostname and port of the database service (mariadb is the service name)</span></span><br><span class="line">      <span class="attr">WORDPRESS_DB_NAME:</span> <span class="string">wordpress_db</span></span><br><span class="line">      <span class="attr">WORDPRESS_DB_USER:</span> <span class="string">wordpress_user</span></span><br><span class="line">      <span class="attr">WORDPRESS_DB_PASSWORD:</span> <span class="string">your_wordpress_password</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">wordpress_data:/var/www/html</span> <span class="comment"># Persist WordPress files in a named volume</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">mariadb</span> <span class="comment"># Ensure the database service starts before WordPress</span></span><br><span class="line"></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line">  <span class="attr">mariadb_data:</span> <span class="comment"># Define the named volume for database persistence</span></span><br><span class="line">  <span class="attr">wordpress_data:</span> <span class="comment"># Define the named volume for WordPress files persistence</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/10/13/docker2/" data-id="cuidzgl8gQViym_RAWJR8dyVM" data-title="通過 Docker Compose 部署 WordPress 和 MariaDB" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2025/10/13/docker3/" data-id="cuidE4-zriihGDVPoTZHbvlg1" data-title="通過 Docker Compose 部署 Portainer" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
       
       
       
@@ -741,6 +743,10 @@
       <ul>
         
           <li>
+            <a href="/2026/01/16/docker5/">通過 Docker Compose 設置 ezbookkeeping 和 MariaDB</a>
+          </li>
+        
+          <li>
             <a href="/2026/01/14/docker4/">使用 Docker 部署 ezbookkeeping</a>
           </li>
         
@@ -754,10 +760,6 @@
         
           <li>
             <a href="/2025/10/20/raspberryPi2/">Raspberry Pi OS 64-bit 安裝 Docker Engine</a>
-          </li>
-        
-          <li>
-            <a href="/2025/10/20/raspberryPi1/">Raspberry Pi OS 配置通過代理伺服器訪問網絡</a>
           </li>
         
       </ul>
